@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: review_monitor
+    ports:
+      # 5434: hindari bentrok dgn postgres lain di host (colima dkk)
+      - "5434:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d review_monitor"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/review_monitor
+      # gh CLI dipakai server (collect/review) — pasang di image? tanpa ini collect gagal di docker.
+      # CATATAN: jalankan `docker compose run app sh -c "apk add gh"` atau mount host gh via volume.
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
