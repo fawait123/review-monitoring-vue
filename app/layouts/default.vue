@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { GitPullRequestIcon, LayoutDashboardIcon, MoonIcon, SunIcon } from "@lucide/vue";
+import GhStatusButton from "~/components/GhStatusButton.vue";
 
 const route = useRoute();
 const colorMode = useColorMode();
@@ -58,12 +59,14 @@ const toggleTheme = () => {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton :tooltip="colorMode.preference === 'dark' ? 'Mode terang' : 'Mode gelap'"
-              @click="toggleTheme" class="py-6 px-4">
-              <SunIcon v-if="colorMode.preference === 'dark'" class="size-4" />
-              <MoonIcon v-else class="size-4" />
-              <span>{{ colorMode.preference === "dark" ? "Mode terang" : "Mode gelap" }}</span>
-            </SidebarMenuButton>
+            <ClientOnly>
+              <SidebarMenuButton :tooltip="colorMode.preference === 'dark' ? 'Mode terang' : 'Mode gelap'"
+                @click="toggleTheme" class="py-6 px-4">
+                <SunIcon v-if="colorMode.preference === 'dark'" class="size-4" />
+                <MoonIcon v-else class="size-4" />
+                <span>{{ colorMode.preference === "dark" ? "Mode terang" : "Mode gelap" }}</span>
+              </SidebarMenuButton>
+            </ClientOnly>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
@@ -75,9 +78,8 @@ const toggleTheme = () => {
         <SidebarTrigger class="-ml-1" />
         <Separator orientation="vertical" class="mr-2 h-4" />
         <span class="text-sm font-medium">{{ route.meta.title ?? "Review Monitoring" }}</span>
-        <span class="ml-auto flex items-center gap-2 text-xs text-muted-foreground">
-          <span class="inline-block size-2 rounded-full bg-emerald-400" />
-          gh CLI
+        <span class="ml-auto flex items-center gap-2">
+          <GhStatusButton />
         </span>
       </header>
       <main class="p-6">

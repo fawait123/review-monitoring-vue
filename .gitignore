@@ -40,3 +40,4 @@ yarn-error.log*
 # local data
 data/
 .pi
+.plannotator

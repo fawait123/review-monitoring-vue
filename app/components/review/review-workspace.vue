@@ -203,6 +203,9 @@ const submit = async () => {
       return;
     }
     toast.success(`Review disubmit ke GitHub (${data.comments} komentar)`);
+    if (data.dropped > 0) {
+      toast.warning(`${data.dropped} komentar tak bisa dipasang (diff PR berubah) — dicatat di summary`);
+    }
     mode.value = "submitted";
     emit("submitted");
   } finally {
