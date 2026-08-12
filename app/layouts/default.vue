@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GitPullRequestIcon, LayoutDashboardIcon, MoonIcon, SunIcon } from "@lucide/vue";
+import { GitPullRequestIcon, LayoutDashboardIcon, MoonIcon, SettingsIcon, SunIcon } from "@lucide/vue";
 import GhStatusButton from "~/components/GhStatusButton.vue";
 
 const route = useRoute();
@@ -10,6 +10,7 @@ const isActive = (path: string) => route.path === path || route.path.startsWith(
 const nav = [
   { to: "/", label: "Dashboard", icon: LayoutDashboardIcon, exact: true },
   { to: "/pull-request", label: "Pull Request", icon: GitPullRequestIcon },
+  { to: "/model", label: "Model", icon: SettingsIcon },
 ];
 
 const toggleTheme = () => {

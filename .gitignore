@@ -40,4 +40,4 @@ yarn-error.log*
 # local data
 data/
 .pi
-.plannotator
+.plannotatorserver/config/models-store.json

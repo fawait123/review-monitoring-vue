@@ -20,10 +20,13 @@ services:
     build: .
     environment:
       DATABASE_URL: postgres://postgres:postgres@db:5432/review_monitor
+      # API key untuk model pi SDK (lihat server/config/models.json). Kosong → model terdaftar tapi unavailable.
+      OLLAMA_API_KEY: ${OLLAMA_API_KEY:-}
+      NINE_ROUTER_API_KEY: ${NINE_ROUTER_API_KEY:-}
       # gh CLI dipakai server (collect/review) — pasang di image? tanpa ini collect gagal di docker.
       # CATATAN: jalankan `docker compose run app sh -c "apk add gh"` atau mount host gh via volume.
     ports:
-      - "3000:3000"
+      - "3303:3303"
     depends_on:
       db:
         condition: service_healthy

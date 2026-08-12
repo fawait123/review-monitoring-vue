@@ -93,3 +93,17 @@ export const comments = pgTable(
     check("comments_status_check", sql`${t.status} IN ('draft','submitted')`),
   ],
 );
+
+// Konfigurasi model pi SDK untuk review — single row (id selalu 1).
+// Diisi dari UI halaman /model; dibaca runner tiap kali review dijalankan.
+export const modelConfig = pgTable(
+  "model_config",
+  {
+    id: serial("id").primaryKey(),
+    providerId: text("provider_id").notNull(),
+    modelId: text("model_id").notNull(),
+    thinkingLevel: text("thinking_level").notNull().default("medium"),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [check("model_config_id_one", sql`${t.id} = 1`)],
+);

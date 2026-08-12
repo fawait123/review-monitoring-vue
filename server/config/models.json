@@ -1,0 +1,32 @@
+{
+  "providers": {
+    "ollama": {
+      "baseUrl": "https://ollama-developer.geekdevops.my.id/v1",
+      "api": "openai-completions",
+      "apiKey": "$OLLAMA_API_KEY",
+      "models": [
+        {
+          "id": "ornith-9b",
+          "name": "Ornith 9B",
+          "reasoning": true,
+          "contextWindow": 8192,
+          "maxTokens": 32000
+        }
+      ]
+    },
+    "9router": {
+      "baseUrl": "http://localhost:20128/v1",
+      "api": "openai-completions",
+      "apiKey": "$NINE_ROUTER_API_KEY",
+      "models": [
+        { "id": "claude-opus", "name": "Claude Opus Combos", "reasoning": true },
+        { "id": "oc/deepseek-v4-flash-free", "name": "Deepseek v4 flash", "reasoning": true },
+        { "id": "oc/nemotron-3-ultra-free", "name": "Nemotron Ultra 3", "reasoning": true },
+        { "id": "oc/north-mini-code-free", "name": "Nort Mini Code", "reasoning": true },
+        { "id": "oc/mimo-v2.5-free", "name": "Mimo free", "reasoning": true },
+        { "id": "oc/big-pickle", "name": "Big Pickle", "reasoning": true },
+        { "id": "mmf/mimo-auto", "name": "Mimo Auto", "reasoning": true }
+      ]
+    }
+  }
+}

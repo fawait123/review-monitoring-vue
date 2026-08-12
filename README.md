@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Model Pi SDK (Review)
+
+Agent review PR pakai pi coding-agent. Definisi provider/model ada di
+`server/config/models.json` (apiKey via env, mis. `$OLLAMA_API_KEY` — isi di `.env`).
+
+Model aktif dikonfigurasi lewat UI: menu **Model** di sidebar → pilih
+provider/model + thinking level → simpan (tabel `model_config`, dibaca tiap review run).
+Tanpa config tersimpan → fallback model pertama yang available.
+
+Catatan: provider `9router` (localhost:20128) hanya jalan di mesin dev;
+di Docker pakai `ollama` (remote).

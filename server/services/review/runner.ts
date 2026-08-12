@@ -56,10 +56,33 @@ export async function runReview(
 ): Promise<{ result: ReviewResult; model: string | null }> {
   const pi = await import("@earendil-works/pi-coding-agent");
   const { REVIEW_SYSTEM_PROMPT, buildReviewUserPrompt } = await import("./prompt");
+  const { configPaths } = await import("../model-config-paths");
+  const { getModelConfig } = await import("../db/model-config");
 
-  const modelRuntime = await pi.ModelRuntime.create();
+  // Config pi SDK milik app sendiri (server/config/*) — tidak bergantung ~/.pi/agent.
+  const { modelsPath, authPath } = configPaths();
+  const modelRuntime = await pi.ModelRuntime.create({ modelsPath, authPath });
+
+  // Model aktif dari config DB (diisi UI halaman /model); fallback model pertama available.
+  const cfg = await getModelConfig();
+  let model: any = undefined;
+  let thinkingLevel: any = "medium";
+  if (cfg) {
+    const m = modelRuntime.getModel(cfg.providerId, cfg.modelId);
+    if (m) {
+      model = m;
+      thinkingLevel = cfg.thinkingLevel;
+    }
+  }
+  if (!model) {
+    const available = await modelRuntime.getAvailable();
+    if (available.length > 0) model = available[0];
+  }
+
   const { session } = await pi.createAgentSession({
     modelRuntime,
+    model,
+    thinkingLevel,
     sessionManager: pi.SessionManager.inMemory(),
     tools: ["read", "grep", "find", "ls"],
     cwd: process.cwd(),

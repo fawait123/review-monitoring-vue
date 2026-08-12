@@ -26,5 +26,7 @@ ENV NODE_ENV=production
 COPY --from=build /app/.output ./.output
 # migration SQL dibutuhkan saat boot (plugin migrate.ts)
 COPY --from=build /app/server/services/db/migrations ./.output/server/services/db/migrations
-EXPOSE 3000
+# config pi SDK (models.json + auth.json) dibaca runner/review + API /api/model/*
+COPY --from=build /app/server/config ./.output/server/config
+EXPOSE 3303
 CMD ["node", ".output/server/index.mjs"]
