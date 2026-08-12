@@ -68,9 +68,14 @@ const commentsByReview = computed<Record<number, ReviewComment[]>>(() => {
               <span class="text-muted-foreground font-mono text-base"> #{{ data.pr.number }}</span>
             </h1>
             <p class="text-sm text-muted-foreground mt-1">
-              <span class="font-mono">{{ data.pr.repo }}</span> · oleh <b>{{ data.pr.authorLogin }}</b>
-              <span v-if="data.baseRef && data.headRef" class="font-mono"> · {{ data.baseRef }} ← {{ data.headRef
-                }}</span>
+              <span class="font-mono">
+                <NuxtLink :href="data.pr.url">
+                  {{ data.pr.repo }}
+                </NuxtLink>
+              </span> · oleh <b>{{ data.pr.authorLogin }}</b>
+              <span v-if="data.baseRef && data.headRef" class="font-mono">
+                · {{ data.baseRef }} ← {{ data.headRef }}
+              </span>
             </p>
           </div>
           <div class="flex items-center gap-2 shrink-0">
