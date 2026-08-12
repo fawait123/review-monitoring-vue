@@ -10,7 +10,8 @@ export default defineEventHandler(async () => {
   const availableKeys = new Set(available.map((m) => `${m.provider}/${m.id}`));
 
   // providerIds() termasuk provider custom dari models.json; getProviders() hanya builtin.
-  const providers = [...runtime.providerIds()].map((id) => {
+  const providerIds = runtime.getProviders().map((p) => p.id)
+  const providers = [...providerIds].map((id) => {
     const models = runtime.getModels(id) ?? [];
     return {
       id,
