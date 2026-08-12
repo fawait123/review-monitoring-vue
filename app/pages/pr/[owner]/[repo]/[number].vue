@@ -45,7 +45,7 @@ const commentsByReview = computed<Record<number, ReviewComment[]>>(() => {
         belum ada di database lokal.` : error.message }}
       </p>
       <Button variant="outline" class="mt-4">
-        <NuxtLink to="/">← Dashboard</NuxtLink>
+        <NuxtLink to="/pull-request">← Dashboard</NuxtLink>
       </Button>
     </div>
 
@@ -58,7 +58,7 @@ const commentsByReview = computed<Record<number, ReviewComment[]>>(() => {
 
     <template v-else-if="data">
       <div>
-        <NuxtLink to="/" class="text-sm text-muted-foreground hover:text-foreground">
+        <NuxtLink to="/pull-request" class="text-sm text-muted-foreground hover:text-foreground">
           ← Dashboard
         </NuxtLink>
         <div class="flex items-start justify-between gap-4 mt-2 flex-wrap">
@@ -69,7 +69,7 @@ const commentsByReview = computed<Record<number, ReviewComment[]>>(() => {
             </h1>
             <p class="text-sm text-muted-foreground mt-1">
               <span class="font-mono">
-                <NuxtLink :href="data.pr.url">
+                <NuxtLink :href="data.pr.url" target="_blank">
                   {{ data.pr.repo }}
                 </NuxtLink>
               </span> · oleh <b>{{ data.pr.authorLogin }}</b>
