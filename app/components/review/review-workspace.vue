@@ -18,7 +18,7 @@ const emit = defineEmits<{ submitted: [] }>();
 type Mode = "idle" | "running" | "editing" | "submitted";
 
 interface LogLine {
-  kind: "info" | "tool" | "text";
+  kind: "info" | "tool" | "text" | "console";
   text: string;
 }
 
@@ -63,10 +63,22 @@ const handleEvent = (event: string, data: any) => {
       pushLog({ kind: "info", text: `✅ Review selesai (id ${data.reviewId}). Memuat hasil…` });
       loadReview(data.reviewId);
       break;
+    case "file_start":
+      pushLog({ kind: "console", text: `==============================` })
+      pushLog({ kind: "console", text: `============= START ==========` })
+      pushLog({ kind: "console", text: `==============================` })
+      pushLog({ kind: "console", text: `Starting review file ${data.path}` })
+      break;
+    case "file_done":
+      pushLog({ kind: "console", text: `Finish review file ${data.path}` })
+      break;
     case "error":
       pushLog({ kind: "info", text: `❌ ${data.message}` });
       toast.error(data.message);
       mode.value = "idle";
+      if (data.reviewId) {
+        loadReview(data.reviewId);
+      }
       break;
   }
 };
@@ -104,10 +116,12 @@ const runReview = async () => {
       for (const block of blocks) {
         const event = block.match(/^event: (.+)$/m)?.[1] ?? "message";
         const data = JSON.parse(block.replace(/^event: .+\n?/m, "").replace(/^data: /m, ""));
+        console.log(data)
         handleEvent(event, data);
       }
     }
   } catch (err: any) {
+    console.log(err)
     if (err.name !== "AbortError") {
       pushLog({ kind: "info", text: `❌ ${err.message}` });
       toast.error(err.message);
@@ -240,7 +254,7 @@ const submit = async () => {
         </h3>
         <div class="rounded bg-black/40 p-3 h-64 overflow-y-auto font-mono text-xs space-y-1">
           <div v-for="(l, i) in log" :key="i"
-            :class="l.kind === 'info' ? 'text-sky-400' : l.kind === 'tool' ? 'text-amber-400/80' : 'text-emerald-300/90 whitespace-pre-wrap break-words'">
+            :class="l.kind === 'info' ? 'text-sky-400' : l.kind === 'tool' ? 'text-amber-400/80' : l.kind === 'console' ? 'text-pink-400/80' : 'text-emerald-300/90 whitespace-pre-wrap wrap-break-word'">
             {{ l.text }}
           </div>
           <span v-if="log.length === 0" class="text-muted-foreground">menunggu stream…</span>
@@ -249,7 +263,7 @@ const submit = async () => {
       </div>
 
       <div v-if="mode === 'editing'"
-        class="space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto pr-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        class="space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto pr-1 scrollbar-none [&::-webkit-scrollbar]:hidden">
         <div class="rounded-lg border p-4 space-y-3">
           <h3 class="font-semibold text-sm">Summary review</h3>
           <Textarea v-model="summary" rows="6" placeholder="Ringkasan review level PR…" />

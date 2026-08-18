@@ -8,6 +8,7 @@ export interface ReviewRunCallbacks {
 
 interface RunOptions {
   diff: string;
+  filePathTarget: string;
   owner: string;
   repo: string;
   number: number;
@@ -16,6 +17,7 @@ interface RunOptions {
   headRef: string;
   clampLine: (path: string, line: number) => number | null;
   cb: ReviewRunCallbacks;
+  signal?: AbortSignal;
 }
 
 /** Ekstrak teks terakhir dari assistant message (defensive thd bentuk content parts). */
@@ -45,8 +47,8 @@ export function parseReviewResult(text: string): ReviewResult {
   const summary = typeof parsed.summary === "string" ? parsed.summary : "";
   const comments = Array.isArray(parsed.comments)
     ? parsed.comments
-        .filter((c: any) => c && typeof c.path === "string" && typeof c.body === "string")
-        .map((c: any) => ({ path: c.path, line: Number(c.line) || 0, body: c.body }))
+      .filter((c: any) => c && typeof c.path === "string" && typeof c.body === "string")
+      .map((c: any) => ({ path: c.path, line: Number(c.line) || 0, body: c.body }))
     : [];
   return { summary, comments };
 }
@@ -88,6 +90,13 @@ export async function runReview(
     cwd: process.cwd(),
   });
 
+  if (opts.signal) {
+    opts.signal.addEventListener("abort", () => {
+      // Jika user putus koneksi, buang session secara paksa agar proses AI terhenti
+      session.dispose();
+    });
+  }
+
   let lastModel: string | null = null;
   session.subscribe((event: any) => {
     switch (event.type) {
@@ -118,31 +127,45 @@ export async function runReview(
     diff: opts.diff,
   });
 
-  // SATU prompt: system + diff barengan. Kalau dipisah, agent jawab dulu "Belum ada diff"
-  // utk prompt system (tanpa diff) sebelum terima diff → stream berantakan.
-  await session.prompt(`${REVIEW_SYSTEM_PROMPT}\n\n${userPrompt}`);
+  // INJECT instruksi tambahan di akhir prompt agar AI benar-benar fokus pada 1 file ini
+  const fileFocusInstruction = `\n\n--- PERHATIAN: MODE REVIEW PER FILE ---\nSaat ini kamu sedang ditugaskan secara spesifik HANYA untuk mereview file: \`${opts.filePathTarget}\`.\nPastikan setiap summary dan detail comments pada objek JSON kamu hanya ditujukan untuk file tersebut berdasarkan diff yang diberikan. Abaikan file lain.`;
 
-  let text = lastAssistantText(session.agent.state.messages);
-  let result: ReviewResult;
   try {
-    result = parseReviewResult(text);
-  } catch {
-    // retry 1x: minta JSON murni
-    await session.prompt(
-      "Output kamu tidak valid JSON. Balas ULANG dengan SATU objek JSON valid sesuai format yang diminta, tanpa teks lain, tanpa markdown code fence."
-    );
-    text = lastAssistantText(session.agent.state.messages);
-    result = parseReviewResult(text);
-  }
-  session.dispose();
+    // SATU prompt: system + diff barengan + instruksi fokus file
+    await session.prompt(`${REVIEW_SYSTEM_PROMPT}\n\n${userPrompt}${fileFocusInstruction}`);
 
-  // validasi + clamp line ke hunk diff
-  const clamped = [];
-  for (const c of result.comments) {
-    const line = opts.clampLine(c.path, c.line);
-    if (line === null) continue; // file tak ada di diff → drop
-    clamped.push({ ...c, line });
+    let text = lastAssistantText(session.agent.state.messages);
+    let result: ReviewResult;
+    try {
+      result = parseReviewResult(text);
+    } catch {
+      // retry 1x: minta JSON murni (juga ingatkan ulang soal file spesifik)
+      await session.prompt(
+        `Output kamu tidak valid JSON. Balas ULANG dengan SATU objek JSON valid sesuai format yang diminta, KHUSUS untuk file \`${opts.filePathTarget}\`, tanpa teks lain, tanpa markdown code fence.`
+      );
+      text = lastAssistantText(session.agent.state.messages);
+      result = parseReviewResult(text);
+    }
+    session.dispose();
+
+    // validasi + clamp line ke hunk diff
+    const clamped = [];
+    for (const c of result.comments) {
+      // PROTEKSI: Abaikan comment dari file lain jika LLM tergelincir berhalusinasi
+      if (c.path !== opts.filePathTarget) continue;
+
+      const line = opts.clampLine(c.path, c.line);
+      if (line === null) continue; // file tak ada di diff → drop
+      clamped.push({ ...c, line });
+    }
+
+    opts.cb.onDone(lastModel);
+    return { result: { summary: result.summary, comments: clamped }, model: lastModel };
+  } catch (error) {
+    session.dispose();
+    if (opts.signal?.aborted) {
+      throw new Error("Review dibatalkan karena client disconnect.");
+    }
+    throw error;
   }
-  opts.cb.onDone(lastModel);
-  return { result: { summary: result.summary, comments: clamped }, model: lastModel };
 }

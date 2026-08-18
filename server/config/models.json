@@ -3,29 +3,115 @@
     "ollama": {
       "baseUrl": "https://ollama-developer.geekdevops.my.id/v1",
       "api": "openai-completions",
-      "apiKey": "$OLLAMA_API_KEY",
+      "apiKey": "sk-JrAM9hUxYERlBt_pokR8_Q",
       "models": [
         {
           "id": "ornith-9b",
           "name": "Ornith 9B",
           "reasoning": true,
+          "input": [
+            "text"
+          ],
           "contextWindow": 8192,
-          "maxTokens": 32000
+          "maxTokens": 32000,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
         }
       ]
     },
-    "9router": {
+    "nine-router": {
       "baseUrl": "http://localhost:20128/v1",
       "api": "openai-completions",
-      "apiKey": "$NINE_ROUTER_API_KEY",
+      "apiKey": "sk-9cc4300d067ca891-e981i9-265ca9a3",
       "models": [
-        { "id": "claude-opus", "name": "Claude Opus Combos", "reasoning": true },
-        { "id": "oc/deepseek-v4-flash-free", "name": "Deepseek v4 flash", "reasoning": true },
-        { "id": "oc/nemotron-3-ultra-free", "name": "Nemotron Ultra 3", "reasoning": true },
-        { "id": "oc/north-mini-code-free", "name": "Nort Mini Code", "reasoning": true },
-        { "id": "oc/mimo-v2.5-free", "name": "Mimo free", "reasoning": true },
-        { "id": "oc/big-pickle", "name": "Big Pickle", "reasoning": true },
-        { "id": "mmf/mimo-auto", "name": "Mimo Auto", "reasoning": true }
+        {
+          "id": "oc/deepseek-v4-flash-free",
+          "name": "Deepseek v4 flash",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "oc/big-pickle",
+          "name": "Big Pickle",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "mmf/mimo-auto",
+          "name": "Mimo Auto",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "gemini-basic",
+          "name": "Gemini Basic",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "gemini-pro",
+          "name": "Gemini Pro",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "antigravity-basic",
+          "name": "Antigravity Basic",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
       ]
     }
   }
