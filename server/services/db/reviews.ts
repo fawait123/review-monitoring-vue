@@ -1,4 +1,4 @@
-import { and, desc, eq, sql } from "drizzle-orm";
+import { and, desc, eq, inArray, sql } from "drizzle-orm";
 import { db } from "./client";
 import { comments, reviews } from "./schema";
 import type { Review, ReviewComment, ReviewResult } from "~~/shared/types";
@@ -31,6 +31,22 @@ function toComment(row: CommentRow): ReviewComment {
     status: row.status,
     ghCommentId: row.ghCommentId,
   };
+}
+
+export async function freshReview(prId: number) {
+  return db().transaction(async (tx) => {
+    const existing = await tx
+      .select({ id: reviews.id })
+      .from(reviews)
+      .where(eq(reviews.prId, prId));
+
+    const reviewIds = existing.map((r) => r.id);
+
+    if (reviewIds.length > 0) {
+      await tx.delete(comments).where(inArray(comments.reviewId, reviewIds));
+      await tx.delete(reviews).where(inArray(reviews.id, reviewIds));
+    }
+  });
 }
 
 export async function createReview(

@@ -2,7 +2,7 @@ import { setResponseHeaders, setResponseStatus, readBody } from "h3";
 import { getPRDiff, getPRDetail, getPRFull } from "../../services/github";
 import { upsertRepo } from "../../services/db/repos";
 import { getPRByKey, upsertPR } from "../../services/db/prs";
-import { createReview } from "../../services/db/reviews";
+import { createReview, freshReview } from "../../services/db/reviews";
 import { runReview } from "../../services/review/runner";
 import { parseDiff, clampToHunkLine } from "~~/shared/diff-parser";
 import type { DiffFile } from "~~/shared/types";
@@ -31,6 +31,8 @@ export default defineEventHandler(async (event) => {
     await upsertPR({ repoId: repoRow.id, ...full });
     pr = (await getPRByKey(`${owner}/${repo}`, number))!;
   }
+
+  await freshReview(pr.id)
 
   setResponseHeaders(event, {
     "Content-Type": "text/event-stream",
