@@ -88,6 +88,7 @@ export async function runReview(
     sessionManager: pi.SessionManager.inMemory(),
     tools: ["read", "grep", "find", "ls"],
     cwd: process.cwd(),
+
   });
 
   if (opts.signal) {
@@ -125,24 +126,26 @@ export async function runReview(
     baseRef: opts.baseRef,
     headRef: opts.headRef,
     diff: opts.diff,
+    filePathTarget: opts.filePathTarget
   });
 
   // INJECT instruksi tambahan di akhir prompt agar AI benar-benar fokus pada 1 file ini
-  const fileFocusInstruction = `\n\n--- PERHATIAN: MODE REVIEW PER FILE ---\nSaat ini kamu sedang ditugaskan secara spesifik HANYA untuk mereview file: \`${opts.filePathTarget}\`.\nPastikan setiap summary dan detail comments pada objek JSON kamu hanya ditujukan untuk file tersebut berdasarkan diff yang diberikan. Abaikan file lain.`;
-
+  const prompt = `${REVIEW_SYSTEM_PROMPT}\n\n${userPrompt}`
   try {
-    // SATU prompt: system + diff barengan + instruksi fokus file
-    await session.prompt(`${REVIEW_SYSTEM_PROMPT}\n\n${userPrompt}${fileFocusInstruction}`);
+
+    await session.prompt(prompt);
 
     let text = lastAssistantText(session.agent.state.messages);
     let result: ReviewResult;
     try {
       result = parseReviewResult(text);
     } catch {
-      // retry 1x: minta JSON murni (juga ingatkan ulang soal file spesifik)
-      await session.prompt(
-        `Output kamu tidak valid JSON. Balas ULANG dengan SATU objek JSON valid sesuai format yang diminta, KHUSUS untuk file \`${opts.filePathTarget}\`, tanpa teks lain, tanpa markdown code fence.`
-      );
+      const retryInstruction = opts.filePathTarget
+        ? `Output kamu tidak valid JSON. Balas ULANG dengan SATU objek JSON valid sesuai format yang diminta, KHUSUS untuk file \`${opts.filePathTarget}\`, tanpa teks lain, tanpa markdown code fence. INGAT: Jika tidak ada kesalahan, biarkan comments KOSONG []. Jangan beri pujian.`
+        : `Output kamu tidak valid JSON. Balas ULANG dengan SATU objek JSON valid sesuai format yang diminta, tanpa teks lain, tanpa markdown code fence. INGAT: Jika tidak ada kesalahan, biarkan comments KOSONG []. Jangan beri pujian.`;
+
+      await session.prompt(retryInstruction);
+
       text = lastAssistantText(session.agent.state.messages);
       result = parseReviewResult(text);
     }

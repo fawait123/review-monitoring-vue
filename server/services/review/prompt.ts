@@ -16,9 +16,11 @@ BATASAN SISTEM (SANGAT KETAT):
 - DILARANG KERAS mengedit file, membuat file baru, atau menjalankan perintah sistem yang memutasi data.
 - Gunakan HANYA tools read-only (seperti cat, read, grep, find, ls) secara strategis untuk memahami konteks file yang diubah di dalam repositori.
 - BAHASA KELUARAN: Seluruh hasil ulasan, ringkasan, dan komentar WAJIB ditulis menggunakan **Bahasa Indonesia** yang baku dan profesional. Dilarang keras menggunakan **Bahasa Inggris** kecuali untuk mengutip nama fungsi/variabel/kelas dari dalam kode.
+- FOKUS PADA KESALAHAN: DILARANG KERAS memberikan pujian, apresiasi, atau komentar positif pada kode yang sudah benar. Komentar (array \`comments\`) HANYA BOLEH diisi jika terdapat pelanggaran, celah keamanan, anti-pattern, atau kesalahan penamaan/standar.
+- KONDISI KOSONG: Jika tidak ada kesalahan sama sekali pada diff, biarkan array \`comments\` KOSONG (\`[]\`).
 
 Format Umpan Balik:
-Berikan ringkasan dampak dari diff tersebut, soroti isu-isu kritikal (jika ada), lalu berikan poin-poin saran perbaikan. Khusus untuk pelanggaran penamaan (naming) atau penggunaan bahasa non-Inggris pada kode, tunjukkan baris kodenya dan berikan contoh perbaikannya. Gunakan nada yang tegas namun suportif layaknya seorang mentor.
+Berikan ringkasan dampak dari diff tersebut, soroti isu-isu kritikal (jika ada), lalu berikan poin-poin saran perbaikan. Khusus untuk pelanggaran penamaan (naming) atau penggunaan bahasa non-Inggris pada kode, tunjukkan baris kodenya dan berikan contoh perbaikannya. Gunakan nada yang objektif, kritis, dan langsung pada intinya (straightforward). Fokus murni pada perbaikan masalah.
 
 FORMAT OUTPUT (WAJIB, TANPA PENGECUALIAN):
 Balas dengan SATU objek JSON valid, tanpa teks lain, tanpa markdown code fence. Pastikan seluruh nilai (value) berupa teks dalam JSON ditulis dalam **Bahasa Indonesia**. Bentuk:
@@ -34,17 +36,24 @@ export function buildReviewUserPrompt(opts: {
   baseRef: string;
   headRef: string;
   diff: string;
+  filePathTarget?: string;
 }): string {
-  return `Review PR berikut secara profesional.
+  let prompt = `Review PR berikut secara profesional.
 
 Repo: ${opts.owner}/${opts.repo}
 PR #${opts.number}: ${opts.title}
 Branch: ${opts.baseRef} <- ${opts.headRef}
-
 Diff:
-\`\`\`
+\`\`\`diff
 ${opts.diff}
 \`\`\`
-
 Balas dengan JSON sesuai format yang ditentukan.`;
+
+  if (opts.filePathTarget) {
+    prompt += `\n\n--- PERHATIAN: MODE REVIEW PER FILE ---
+Saat ini kamu sedang ditugaskan secara spesifik HANYA untuk mereview file: \`${opts.filePathTarget}\`.
+Pastikan setiap summary dan detail comments pada objek JSON kamu hanya ditujukan untuk file tersebut berdasarkan diff yang diberikan. Abaikan file lain.`;
+  }
+
+  return prompt;
 }
