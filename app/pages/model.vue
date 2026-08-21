@@ -1,91 +1,18 @@
 <script setup lang="ts">
-import { toast } from "vue-sonner";
+import { useModelConfig } from "~/composables/useModelConfig";
 
-interface CatalogModel {
-  id: string;
-  name: string;
-  reasoning: boolean;
-  available: boolean;
-}
-interface CatalogProvider {
-  id: string;
-  name: string;
-  models: CatalogModel[];
-}
-
-const THINKING_LEVELS = ["off", "minimal", "low", "medium", "high", "xhigh", "max"];
-
-const providers = ref<CatalogProvider[]>([]);
-const loading = ref(true);
-const saving = ref(false);
-
-const providerId = ref("");
-const modelId = ref("");
-const thinkingLevel = ref("medium");
-const saved = ref<{ providerId: string; modelId: string; thinkingLevel: string } | null>(null);
-
-const modelOptions = computed(() => providers.value.find((p) => p.id === providerId.value)?.models ?? []);
-
-async function load() {
-  loading.value = true;
-  try {
-    const [cat, cfg] = await Promise.all([
-      fetch("/api/model/catalog").then((r) => r.json()),
-      fetch("/api/model/config").then((r) => r.json()),
-    ]);
-    providers.value = cat.providers ?? [];
-    if (cfg?.providerId) {
-      providerId.value = cfg.providerId;
-      modelId.value = cfg.modelId;
-      thinkingLevel.value = cfg.thinkingLevel ?? "medium";
-      saved.value = cfg;
-    } else if (providers.value.length > 0) {
-      providerId.value = providers.value[0]!.id;
-    }
-  } catch (e: any) {
-    toast.error(e?.message ?? "Gagal memuat catalog model");
-  } finally {
-    loading.value = false;
-  }
-}
-
-// Ganti provider → reset model ke yg tersedia pertama.
-// Skip kalau modelId masih valid (mis. waktu load dari DB biar autoselect tersimpan).
-watch(providerId, () => {
-  const opts = modelOptions.value;
-  if (opts.some((m) => m.id === modelId.value)) return;
-  const first = opts.find((m) => m.available) ?? opts[0];
-  modelId.value = first?.id ?? "";
-});
-
-async function save() {
-  if (!providerId.value || !modelId.value) {
-    toast.error("Pilih provider dan model dulu");
-    return;
-  }
-  saving.value = true;
-  try {
-    const res = await fetch("/api/model/config", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        providerId: providerId.value,
-        modelId: modelId.value,
-        thinkingLevel: thinkingLevel.value,
-      }),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error ?? "Gagal simpan config");
-    saved.value = data;
-    toast.success(`Model aktif: ${data.providerId}/${data.modelId}`);
-  } catch (e: any) {
-    toast.error(e?.message ?? "Gagal simpan config model");
-  } finally {
-    saving.value = false;
-  }
-}
-
-onMounted(load);
+const {
+  providers,
+  modelOptions,
+  providerId,
+  modelId,
+  thinkingLevel,
+  saved,
+  loading,
+  saving,
+  thinkingLevels,
+  save,
+} = useModelConfig();
 </script>
 
 <template>
@@ -102,6 +29,7 @@ onMounted(load);
         <div v-if="loading" class="py-8 text-center text-sm text-muted-foreground">
           Memuat catalog model…
         </div>
+
         <template v-else>
           <div class="space-y-2">
             <div class="text-sm font-medium">Provider</div>
@@ -145,7 +73,7 @@ onMounted(load);
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem v-for="lvl in THINKING_LEVELS" :key="lvl" :value="lvl">
+                <SelectItem v-for="lvl in thinkingLevels" :key="lvl" :value="lvl">
                   {{ lvl }}
                 </SelectItem>
               </SelectContent>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { toast } from "vue-sonner";
 import { MoreHorizontalIcon } from "@lucide/vue";
 import type { PR } from "~~/shared/types";
 import PrStatusBadge from "./pr-status-badge.vue";
@@ -9,25 +8,18 @@ import DiffStat from "./diff-stat.vue";
 const props = defineProps<{
   prs: PR[];
   loading?: boolean;
-  onStateChange?: (id: number, state: PR["state"]) => void;
+  onStateChange?: (p: PR, state: PR["state"]) => void;
 }>();
 
-const changeState = async (p: PR, state: PR["state"]) => {
-  try {
-    const res = await fetch(`/api/prs/${p.id}/state`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ state }),
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      toast.error(data.error ?? "Gagal update state");
-      return;
-    }
-    toast.success(`PR #${p.number} → ${state}`);
-    props.onStateChange?.(p.id, state);
-  } catch {
-    toast.error("Gagal update state");
+const emit = defineEmits<{
+  "state-change": [pr: PR, state: PR["state"]];
+}>();
+
+const handleStateChange = (p: PR, state: PR["state"]) => {
+  if (props.onStateChange) {
+    props.onStateChange(p, state);
+  } else {
+    emit("state-change", p, state);
   }
 };
 
@@ -60,8 +52,10 @@ const fmtDate = (iso: string) =>
             <TableCell class="font-mono text-muted-foreground">{{ p.number }}</TableCell>
             <TableCell class="font-mono text-xs text-muted-foreground">{{ p.repo }}</TableCell>
             <TableCell>
-              <NuxtLink :to="`/pr/${p.repo}/${p.number}`"
-                class="hover:underline text-sm line-clamp-1 max-w-80 truncate inline-block">
+              <NuxtLink
+                :to="`/pr/${p.repo}/${p.number}`"
+                class="hover:underline text-sm line-clamp-1 max-w-80 truncate inline-block"
+              >
                 {{ p.title }}
               </NuxtLink>
             </TableCell>
@@ -80,18 +74,20 @@ const fmtDate = (iso: string) =>
             </TableCell>
             <TableCell class="text-right">
               <DropdownMenu>
-                <DropdownMenuTrigger class="inline-flex size-8 items-center justify-center rounded-md hover:bg-muted"
-                  aria-label="Ubah state PR">
+                <DropdownMenuTrigger
+                  class="inline-flex size-8 items-center justify-center rounded-md hover:bg-muted"
+                  aria-label="Ubah state PR"
+                >
                   <MoreHorizontalIcon class="size-4" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuItem :disabled="p.state === 'OPEN'" @select="changeState(p, 'OPEN')">
+                  <DropdownMenuItem :disabled="p.state === 'OPEN'" @select="handleStateChange(p, 'OPEN')">
                     Tandai Open
                   </DropdownMenuItem>
-                  <DropdownMenuItem :disabled="p.state === 'MERGED'" @select="changeState(p, 'MERGED')">
+                  <DropdownMenuItem :disabled="p.state === 'MERGED'" @select="handleStateChange(p, 'MERGED')">
                     Tandai Merged
                   </DropdownMenuItem>
-                  <DropdownMenuItem :disabled="p.state === 'CLOSED'" @select="changeState(p, 'CLOSED')">
+                  <DropdownMenuItem :disabled="p.state === 'CLOSED'" @select="handleStateChange(p, 'CLOSED')">
                     Tandai Closed
                   </DropdownMenuItem>
                 </DropdownMenuContent>

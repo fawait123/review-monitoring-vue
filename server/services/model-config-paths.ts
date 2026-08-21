@@ -15,7 +15,7 @@ function findConfigDir(): string {
     resolve(process.cwd(), "server/config"),
     resolve(process.cwd(), ".output/server/config"),
   ];
-  return candidates.find((dir) => existsSync(resolve(dir, "models.json"))) ?? candidates[0];
+  return candidates.find((dir) => existsSync(resolve(dir, "models.json"))) ?? candidates[0]!;
 }
 
 export function configPaths() {

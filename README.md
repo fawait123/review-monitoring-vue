@@ -1,48 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Review Monitor
 
-## Getting Started
+Aplikasi web modern untuk monitoring, pengumpulan (collecting), dan automated code review GitHub Pull Requests (PR) menggunakan bantuan AI agent (**Pi Coding Agent SDK**).
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Tech Stack
+
+- **Framework**: [Nuxt 4](https://nuxt.com/) (Vue 3 + Nitro Engine)
+- **Styling & UI**: Tailwind CSS v4, shadcn-vue / [Reka UI](https://reka-ui.com/), [Lucide Vue](https://lucide.dev/), `@nuxtjs/color-mode`
+- **Charts & Visualisasi**: Apache ECharts (`echarts` & `vue-echarts`)
+- **Database & ORM**: PostgreSQL 16 + [Drizzle ORM](https://orm.drizzle.team/)
+- **AI Coding Agent**: `@earendil-works/pi-coding-agent`
+- **GitHub Integration**: GitHub CLI (`gh`) via Device OAuth Flow
+
+---
+
+## Fitur Utama
+
+1. **Dashboard Analytics**:
+   - Visualisasi KPI PR (Total, Repo, Rasio Open/Merged/Closed, Avg Time-to-Review).
+   - Breakdown PR per repository, per author, dan tren mingguan (12 bulan terakhir).
+2. **Monitoring & List Pull Requests**:
+   - Filter cepat berdasarkan repository dan status PR (Open, Merged, Closed).
+   - Pagination SQL teroptimasi dan sinkronisasi real-time via tombol *Refresh*.
+3. **AI Automated Code Review (Pi Agent)**:
+   - Streaming review real-time (Server-Sent Events) dengan live terminal log.
+   - Analisis file-by-file bertahap dengan *line clamping* (mencegah salah baris diff di GitHub).
+   - Workspace interaktif untuk mengedit, menambah, dan menghapus komentar sebelum submit ke GitHub PR resmi.
+4. **Manajemen Model AI**:
+   - Konfigurasi runtime untuk memilih provider (Ollama, 9router, OpenAI API endpoints) dan model aktif.
+   - Pengaturan *thinking level* (`off` hingga `max`).
+5. **Koneksi GitHub**:
+   - Status indikator koneksi `gh` di header dengan dukungan login cepat (Device Code Flow).
+
+---
+
+## Menjalankan Secara Lokal
+
+### 1. Prerequisites
+- [Node.js](https://nodejs.org/) v20+ atau v22+
+- [pnpm](https://pnpm.io/) v9+ / v11+
+- [GitHub CLI (`gh`)](https://cli.github.com/) terpasang dan terautentikasi (`gh auth login`)
+- PostgreSQL instance yang berjalan
+
+### 2. Konfigurasi Environment (`.env`)
+Salin file `.env.example` ke `.env`:
+```env
+DATABASE_URL=postgres://postgres:postgres@localhost:5434/review_monitor
+OLLAMA_API_KEY=your_ollama_key_here
+NINE_ROUTER_API_KEY=your_key_here
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Migrasi Database
+```bash
+# Push skema Drizzle ke PostgreSQL
+pnpm drizzle-kit push
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Jalankan Dev Server
+```bash
+pnpm dev
+```
+Buka browser di `http://localhost:3000`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Menjalankan dengan Docker Compose
 
-To learn more about Next.js, take a look at the following resources:
+Untuk menjalankan aplikasi beserta container PostgreSQL:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+docker compose up --build -d
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Aplikasi akan berjalan di port `http://localhost:3303` dan PostgreSQL di port `5434`.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Testing & Type Checking
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Menjalankan test diff-parser
+pnpm test
 
-## Model Pi SDK (Review)
+# Menjalankan typecheck TypeScript
+pnpm typecheck
 
-Agent review PR pakai pi coding-agent. Definisi provider/model ada di
-`server/config/models.json` (apiKey via env, mis. `$OLLAMA_API_KEY` — isi di `.env`).
-
-Model aktif dikonfigurasi lewat UI: menu **Model** di sidebar → pilih
-provider/model + thinking level → simpan (tabel `model_config`, dibaca tiap review run).
-Tanpa config tersimpan → fallback model pertama yang available.
-
-Catatan: provider `9router` (localhost:20128) hanya jalan di mesin dev;
-di Docker pakai `ollama` (remote).
+# Build bundle production
+pnpm build
+```

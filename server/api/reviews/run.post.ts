@@ -5,7 +5,7 @@ import { getPRByKey, upsertPR } from "../../services/db/prs";
 import { createReview, freshReview } from "../../services/db/reviews";
 import { runReview } from "../../services/review/runner";
 import { parseDiff, clampToHunkLine } from "~~/shared/diff-parser";
-import type { DiffFile } from "~~/shared/types";
+import type { DiffFile, ReviewResult } from "~~/shared/types";
 
 // Fungsi helper untuk memformat data SSE
 function sse(event: string, data: unknown): string {
@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
     pr = (await getPRByKey(`${owner}/${repo}`, number))!;
   }
 
-  await freshReview(pr.id)
+  await freshReview(pr.id);
 
   setResponseHeaders(event, {
     "Content-Type": "text/event-stream",
@@ -41,7 +41,7 @@ export default defineEventHandler(async (event) => {
   });
 
   let isAborted = false;
-  const abortController = new AbortController()
+  const abortController = new AbortController();
   event.node.req.on("close", () => {
     isAborted = true;
     abortController.abort();
@@ -55,15 +55,14 @@ export default defineEventHandler(async (event) => {
         if (isAborted) return; // Stop jika sudah putus
         try {
           controller.enqueue(encoder.encode(sse(ev, data)));
-        } catch (e) {
+        } catch {
           isAborted = true; // Jika enqueue gagal, tandai abort
         }
       };
 
       let finalSummary = "";
-      let allComments: any[] = [];
+      let allComments: ReviewResult["comments"] = [];
       let usedModel = "";
-
 
       try {
         const [diff, detail] = await Promise.all([
@@ -81,33 +80,46 @@ export default defineEventHandler(async (event) => {
 
           send("file_start", { path: file.path });
 
-          const { result, model } = await runReview({
-            diff,
-            filePathTarget: file.path,
-            owner,
-            repo,
-            number,
-            title: detail.title,
-            baseRef: detail.baseRefName,
-            headRef: detail.headRefName,
-            clampLine,
-            cb: {
-              onDelta: (t) => send("delta", { file: file.path, text: t }),
-              onTool: (toolName, input, output, isError) =>
-                send("tool", { file: file.path, toolName, input, output, isError }),
-              onDone: (m) => send("model", { file: file.path, model: m }),
-            },
-            signal: abortController.signal
-          });
+          try {
+            const { result, model } = await runReview({
+              diff,
+              filePathTarget: file.path,
+              owner,
+              repo,
+              number,
+              title: detail.title,
+              baseRef: detail.baseRefName,
+              headRef: detail.headRefName,
+              clampLine,
+              cb: {
+                onDelta: (t) => send("delta", { file: file.path, text: t }),
+                onTool: (toolName, input, output, isError) =>
+                  send("tool", { file: file.path, toolName, input, output, isError }),
+                onDone: (m) => send("model", { file: file.path, model: m }),
+              },
+              signal: abortController.signal,
+            });
 
-          usedModel = model || usedModel;
+            usedModel = model || usedModel;
 
-          if (result.summary) {
-            finalSummary += `\n\n### \`${file.path}\`\n${result.summary}`;
-          }
+            if (result.summary) {
+              finalSummary += `\n\n### \`${file.path}\`\n${result.summary}`;
+            }
 
-          if (result.comments && result.comments.length > 0) {
-            allComments = allComments.concat(result.comments);
+            if (result.comments && result.comments.length > 0) {
+              allComments = allComments.concat(result.comments);
+            }
+          } catch (fileErr: unknown) {
+            if (isAborted) break;
+            const errMsg = fileErr instanceof Error ? fileErr.message : String(fileErr);
+            send("tool", {
+              file: file.path,
+              toolName: "error",
+              input: "",
+              output: `Gagal mereview file: ${errMsg}`,
+              isError: true,
+            });
+            finalSummary += `\n\n### \`${file.path}\`\n*(Catatan: Gagal memproses review file ini: ${errMsg})*`;
           }
 
           send("file_done", { path: file.path });
@@ -116,10 +128,10 @@ export default defineEventHandler(async (event) => {
         if (!isAborted) {
           const aggregatedResult = {
             summary: finalSummary.trim() || "Tidak ada summary dari review.",
-            comments: allComments
+            comments: allComments,
           };
 
-          const review = await createReview(pr.id, aggregatedResult, usedModel);
+          const review = await createReview(pr!.id, aggregatedResult, usedModel);
 
           send("complete", {
             reviewId: review.id,
@@ -127,18 +139,17 @@ export default defineEventHandler(async (event) => {
             comments: aggregatedResult.comments,
           });
         }
-
-      } catch (err: any) {
+      } catch (err: unknown) {
         if (!isAborted) {
           const aggregatedResult = {
             summary: finalSummary.trim() || "Tidak ada summary dari review.",
-            comments: allComments
+            comments: allComments,
           };
 
-          const review = await createReview(pr.id, aggregatedResult, usedModel);
+          const review = await createReview(pr!.id, aggregatedResult, usedModel);
 
           send("error", {
-            message: err.message ?? String(err),
+            message: err instanceof Error ? err.message : String(err),
             reviewId: review.id,
           });
         }
@@ -146,14 +157,14 @@ export default defineEventHandler(async (event) => {
         if (!isAborted) {
           try {
             controller.close();
-          } catch { }
+          } catch {}
         }
       }
     },
     cancel() {
       isAborted = true;
       abortController.abort();
-    }
+    },
   });
 
   return stream;

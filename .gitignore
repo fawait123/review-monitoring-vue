@@ -42,3 +42,4 @@ data/
 .pi
 .plannotator
 server/config/models-store.json
+scripts
