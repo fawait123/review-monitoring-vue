@@ -13,10 +13,11 @@ function sse(event: string, data: unknown): string {
 }
 
 export default defineEventHandler(async (event) => {
-  const { owner, repo, number } = (await readBody(event)) as {
+  const { owner, repo, number, excludeFiles } = (await readBody(event)) as {
     owner: string;
     repo: string;
     number: number;
+    excludeFiles: string[]
   };
 
   if (!owner || !repo || !number) {
@@ -77,6 +78,11 @@ export default defineEventHandler(async (event) => {
 
         for (const file of files) {
           if (isAborted) break; // Hentikan loop jika koneksi terputus
+
+          if (excludeFiles.includes(file.path)) {
+            send("exclude_file", { path: file.path })
+            continue;
+          }
 
           send("file_start", { path: file.path });
 
@@ -157,7 +163,7 @@ export default defineEventHandler(async (event) => {
         if (!isAborted) {
           try {
             controller.close();
-          } catch {}
+          } catch { }
         }
       }
     },

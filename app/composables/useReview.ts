@@ -30,6 +30,7 @@ export function useReview(options: {
   const openThread = ref<{ path: string; line: number } | null>(null);
   const submitting = ref(false);
   const abortRef = ref<AbortController | null>(null);
+  const excludedPaths = ref<string[]>([])
 
   const pushLog = (line: LogLine) => {
     log.value = [...log.value, line];
@@ -77,6 +78,12 @@ export function useReview(options: {
         pushLog({ kind: "console", text: "==============================" });
         pushLog({ kind: "console", text: `Starting review file ${String(data.path ?? "")}` });
         break;
+      case "exclude_file":
+        pushLog({ kind: "console", text: "==============================" });
+        pushLog({ kind: "console", text: "=========== EXCLUDE ==========" });
+        pushLog({ kind: "console", text: "==============================" });
+        pushLog({ kind: "console", text: `Exclude review file ${String(data.path ?? "")}` });
+        break;
       case "file_done":
         pushLog({ kind: "console", text: `Finish review file ${String(data.path ?? "")}` });
         break;
@@ -123,6 +130,7 @@ export function useReview(options: {
           owner,
           repo,
           number: pr.number,
+          excludeFiles: excludedPaths.value
         }),
         signal: controller.signal,
       });
@@ -136,7 +144,7 @@ export function useReview(options: {
       const decoder = new TextDecoder();
       let buffer = "";
 
-      for (;;) {
+      for (; ;) {
         const { done, value } = await reader.read();
         if (done) break;
         buffer += decoder.decode(value, { stream: true });
@@ -165,6 +173,18 @@ export function useReview(options: {
     abortRef.value?.abort();
     mode.value = "idle";
   };
+
+  const toggleExclude = (path: string, checked: boolean) => {
+    if (checked) {
+      if (!excludedPaths.value.includes(path)) {
+        excludedPaths.value.push(path)
+      }
+    } else {
+      excludedPaths.value = excludedPaths.value.filter(p => p !== path)
+    }
+  }
+
+  const totalExclude = computed(() => excludedPaths.value.length)
 
   const addComment = async (path: string, line: number, body: string) => {
     if (!activeReviewId.value) return;
@@ -272,5 +292,8 @@ export function useReview(options: {
     removeComment,
     saveSummary,
     submit,
+    toggleExclude,
+    totalExclude,
+    excludedPaths
   };
 }
