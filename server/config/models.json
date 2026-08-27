@@ -26,7 +26,7 @@
     "nine-router": {
       "baseUrl": "http://localhost:20128/v1",
       "api": "openai-completions",
-      "apiKey": "sk-9cc4300d067ca891-e981i9-265ca9a3",
+      "apiKey": "sk-87237387597f2e28-nhs5a4-58907993",
       "models": [
         {
           "id": "oc/deepseek-v4-flash-free",
@@ -101,6 +101,34 @@
         {
           "id": "antigravity-basic",
           "name": "Antigravity Basic",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "geek/ggai-v1.0",
+          "name": "geekgarden AI",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "nvidia/deepseek-ai/deepseek-v4-pro-0813",
+          "name": "NVDIA NIM Deepseek",
           "reasoning": true,
           "input": [
             "text"
