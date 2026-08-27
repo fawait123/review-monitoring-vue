@@ -1,28 +1,5 @@
 {
   "providers": {
-    "ollama": {
-      "baseUrl": "https://ollama-developer.geekdevops.my.id/v1",
-      "api": "openai-completions",
-      "apiKey": "sk-JrAM9hUxYERlBt_pokR8_Q",
-      "models": [
-        {
-          "id": "ornith-9b",
-          "name": "Ornith 9B",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "contextWindow": 8192,
-          "maxTokens": 32000,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        }
-      ]
-    },
     "nine-router": {
       "baseUrl": "http://localhost:20128/v1",
       "api": "openai-completions",
@@ -31,114 +8,42 @@
         {
           "id": "oc/deepseek-v4-flash-free",
           "name": "Deepseek v4 flash",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
+          "reasoning": true
         },
         {
           "id": "oc/big-pickle",
           "name": "Big Pickle",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
+          "reasoning": true
         },
         {
           "id": "mmf/mimo-auto",
           "name": "Mimo Auto",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
+          "reasoning": true
         },
         {
           "id": "gemini-basic",
           "name": "Gemini Basic",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
+          "reasoning": true
         },
         {
           "id": "gemini-pro",
           "name": "Gemini Pro",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
+          "reasoning": true
         },
         {
           "id": "antigravity-basic",
           "name": "Antigravity Basic",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
+          "reasoning": true
         },
         {
           "id": "geek/ggai-v1.0",
-          "name": "geekgarden AI",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
+          "name": "geekgarden AI Code Review",
+          "reasoning": true
         },
         {
           "id": "nvidia/deepseek-ai/deepseek-v4-pro-0813",
           "name": "NVDIA NIM Deepseek",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
+          "reasoning": true
         }
       ]
     }
