@@ -110,20 +110,10 @@
       "norm_label": "fmtdays()"
     },
     {
-      "label": "formatNum()",
-      "file_type": "code",
-      "source_file": "app/components/analytics/analytics-kpis.vue",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "app_components_analytics_analytics_kpis_formatnum",
-      "community": 38,
-      "norm_label": "formatnum()"
-    },
-    {
       "label": "kpis",
       "file_type": "code",
       "source_file": "app/components/analytics/analytics-kpis.vue",
-      "source_location": "L21",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "app_components_analytics_analytics_kpis_kpis",
       "community": 38,
@@ -136,7 +126,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_analytics_author_chart",
-      "community": 47,
+      "community": 2,
       "norm_label": "author-chart.vue"
     },
     {
@@ -146,7 +136,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_analytics_author_chart_props",
-      "community": 47,
+      "community": 2,
       "norm_label": "props"
     },
     {
@@ -156,7 +146,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "app_components_analytics_author_chart_ready",
-      "community": 47,
+      "community": 2,
       "norm_label": "ready"
     },
     {
@@ -166,97 +156,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "app_components_analytics_author_chart_option",
-      "community": 47,
-      "norm_label": "option"
-    },
-    {
-      "label": "churn-chart.vue",
-      "file_type": "code",
-      "source_file": "app/components/analytics/churn-chart.vue",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "app_components_analytics_churn_chart",
-      "community": 47,
-      "norm_label": "churn-chart.vue"
-    },
-    {
-      "label": "props",
-      "file_type": "code",
-      "source_file": "app/components/analytics/churn-chart.vue",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "app_components_analytics_churn_chart_props",
-      "community": 47,
-      "norm_label": "props"
-    },
-    {
-      "label": "ready",
-      "file_type": "code",
-      "source_file": "app/components/analytics/churn-chart.vue",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "app_components_analytics_churn_chart_ready",
-      "community": 47,
-      "norm_label": "ready"
-    },
-    {
-      "label": "option",
-      "file_type": "code",
-      "source_file": "app/components/analytics/churn-chart.vue",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "app_components_analytics_churn_chart_option",
-      "community": 47,
-      "norm_label": "option"
-    },
-    {
-      "label": "decision-chart.vue",
-      "file_type": "code",
-      "source_file": "app/components/analytics/decision-chart.vue",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "app_components_analytics_decision_chart",
-      "community": 47,
-      "norm_label": "decision-chart.vue"
-    },
-    {
-      "label": "props",
-      "file_type": "code",
-      "source_file": "app/components/analytics/decision-chart.vue",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "app_components_analytics_decision_chart_props",
-      "community": 47,
-      "norm_label": "props"
-    },
-    {
-      "label": "DECISION_COLORS",
-      "file_type": "code",
-      "source_file": "app/components/analytics/decision-chart.vue",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "app_components_analytics_decision_chart_decision_colors",
-      "community": 47,
-      "norm_label": "decision_colors"
-    },
-    {
-      "label": "ready",
-      "file_type": "code",
-      "source_file": "app/components/analytics/decision-chart.vue",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "app_components_analytics_decision_chart_ready",
-      "community": 47,
-      "norm_label": "ready"
-    },
-    {
-      "label": "option",
-      "file_type": "code",
-      "source_file": "app/components/analytics/decision-chart.vue",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "app_components_analytics_decision_chart_option",
-      "community": 47,
+      "community": 2,
       "norm_label": "option"
     },
     {
@@ -266,7 +166,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_analytics_ratio_chart",
-      "community": 47,
+      "community": 2,
       "norm_label": "ratio-chart.vue"
     },
     {
@@ -276,7 +176,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_analytics_ratio_chart_props",
-      "community": 47,
+      "community": 2,
       "norm_label": "props"
     },
     {
@@ -286,7 +186,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "app_components_analytics_ratio_chart_ready",
-      "community": 47,
+      "community": 2,
       "norm_label": "ready"
     },
     {
@@ -296,7 +196,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "app_components_analytics_ratio_chart_option",
-      "community": 47,
+      "community": 2,
       "norm_label": "option"
     },
     {
@@ -306,7 +206,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_analytics_repo_chart",
-      "community": 47,
+      "community": 2,
       "norm_label": "repo-chart.vue"
     },
     {
@@ -316,7 +216,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_analytics_repo_chart_props",
-      "community": 47,
+      "community": 2,
       "norm_label": "props"
     },
     {
@@ -326,7 +226,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "app_components_analytics_repo_chart_ready",
-      "community": 47,
+      "community": 2,
       "norm_label": "ready"
     },
     {
@@ -336,7 +236,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "app_components_analytics_repo_chart_option",
-      "community": 47,
+      "community": 2,
       "norm_label": "option"
     },
     {
@@ -346,7 +246,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_analytics_trend_chart",
-      "community": 47,
+      "community": 2,
       "norm_label": "trend-chart.vue"
     },
     {
@@ -356,7 +256,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_analytics_trend_chart_props",
-      "community": 47,
+      "community": 2,
       "norm_label": "props"
     },
     {
@@ -366,7 +266,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "app_components_analytics_trend_chart_ready",
-      "community": 47,
+      "community": 2,
       "norm_label": "ready"
     },
     {
@@ -376,7 +276,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "app_components_analytics_trend_chart_option",
-      "community": 47,
+      "community": 2,
       "norm_label": "option"
     },
     {
@@ -666,7 +566,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_pr_review_decision_badge",
-      "community": 18,
+      "community": 47,
       "norm_label": "review-decision-badge.vue"
     },
     {
@@ -676,7 +576,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "app_components_pr_review_decision_badge_props",
-      "community": 18,
+      "community": 47,
       "norm_label": "props"
     },
     {
@@ -686,7 +586,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "app_components_pr_review_decision_badge_map",
-      "community": 18,
+      "community": 47,
       "norm_label": "map"
     },
     {
@@ -836,7 +736,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_badge_badge",
-      "community": 27,
+      "community": 32,
       "norm_label": "badge.vue"
     },
     {
@@ -846,7 +746,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "app_components_ui_badge_badge_props",
-      "community": 27,
+      "community": 32,
       "norm_label": "props"
     },
     {
@@ -856,7 +756,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "app_components_ui_badge_badge_delegatedprops",
-      "community": 27,
+      "community": 32,
       "norm_label": "delegatedprops"
     },
     {
@@ -866,7 +766,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_badge_index",
-      "community": 27,
+      "community": 32,
       "norm_label": "index.ts"
     },
     {
@@ -876,7 +776,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "app_components_ui_badge_index_badgevariants",
-      "community": 27,
+      "community": 32,
       "norm_label": "badgevariants"
     },
     {
@@ -2966,7 +2866,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarcontent",
-      "community": 8,
+      "community": 9,
       "norm_label": "sidebarcontent.vue"
     },
     {
@@ -2976,7 +2876,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarcontent_props",
-      "community": 8,
+      "community": 9,
       "norm_label": "props"
     },
     {
@@ -3046,7 +2946,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebargroupcontent",
-      "community": 8,
+      "community": 9,
       "norm_label": "sidebargroupcontent.vue"
     },
     {
@@ -3056,7 +2956,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebargroupcontent_props",
-      "community": 8,
+      "community": 9,
       "norm_label": "props"
     },
     {
@@ -3066,7 +2966,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebargrouplabel",
-      "community": 9,
+      "community": 8,
       "norm_label": "sidebargrouplabel.vue"
     },
     {
@@ -3076,7 +2976,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebargrouplabel_props",
-      "community": 9,
+      "community": 8,
       "norm_label": "props"
     },
     {
@@ -3086,7 +2986,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarheader",
-      "community": 9,
+      "community": 8,
       "norm_label": "sidebarheader.vue"
     },
     {
@@ -3096,7 +2996,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarheader_props",
-      "community": 9,
+      "community": 8,
       "norm_label": "props"
     },
     {
@@ -3126,7 +3026,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarinset",
-      "community": 8,
+      "community": 9,
       "norm_label": "sidebarinset.vue"
     },
     {
@@ -3136,7 +3036,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarinset_props",
-      "community": 8,
+      "community": 9,
       "norm_label": "props"
     },
     {
@@ -3146,7 +3046,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarmenu",
-      "community": 9,
+      "community": 8,
       "norm_label": "sidebarmenu.vue"
     },
     {
@@ -3156,7 +3056,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarmenu_props",
-      "community": 9,
+      "community": 8,
       "norm_label": "props"
     },
     {
@@ -3166,7 +3066,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarmenuaction",
-      "community": 8,
+      "community": 9,
       "norm_label": "sidebarmenuaction.vue"
     },
     {
@@ -3176,7 +3076,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarmenuaction_props",
-      "community": 8,
+      "community": 9,
       "norm_label": "props"
     },
     {
@@ -3186,7 +3086,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarmenubadge",
-      "community": 9,
+      "community": 8,
       "norm_label": "sidebarmenubadge.vue"
     },
     {
@@ -3196,7 +3096,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarmenubadge_props",
-      "community": 9,
+      "community": 8,
       "norm_label": "props"
     },
     {
@@ -3326,7 +3226,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarmenusub",
-      "community": 9,
+      "community": 8,
       "norm_label": "sidebarmenusub.vue"
     },
     {
@@ -3336,7 +3236,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarmenusub_props",
-      "community": 9,
+      "community": 8,
       "norm_label": "props"
     },
     {
@@ -3366,7 +3266,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarmenusubitem",
-      "community": 8,
+      "community": 9,
       "norm_label": "sidebarmenusubitem.vue"
     },
     {
@@ -3376,7 +3276,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "app_components_ui_sidebar_sidebarmenusubitem_props",
-      "community": 8,
+      "community": 9,
       "norm_label": "props"
     },
     {
@@ -4390,14 +4290,18 @@
       "norm_label": "logline"
     },
     {
-      "label": "useReview()",
+      "label": "useReview composable (SSE client, review state)",
       "file_type": "code",
       "source_file": "app/composables/useReview.ts",
-      "source_location": "L12",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "app_composables_usereview_usereview",
-      "community": 6,
-      "norm_label": "usereview()"
+      "community": 1,
+      "norm_label": "usereview composable (sse client, review state)"
     },
     {
       "label": "default.vue",
@@ -4486,17 +4390,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_pages_index",
-      "community": 57,
+      "community": 12,
       "norm_label": "index.vue"
     },
     {
       "label": "{ data, error }",
       "file_type": "code",
       "source_file": "app/pages/index.vue",
-      "source_location": "L11",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "app_pages_index_data_error",
-      "community": 57,
+      "community": 12,
       "norm_label": "{ data, error }"
     },
     {
@@ -4646,7 +4550,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_utils_echarts",
-      "community": 47,
+      "community": 2,
       "norm_label": "echarts.ts"
     },
     {
@@ -4656,7 +4560,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "app_utils_echarts_state_colors",
-      "community": 47,
+      "community": 2,
       "norm_label": "state_colors"
     },
     {
@@ -4666,7 +4570,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "app_utils_echarts_state_label",
-      "community": 47,
+      "community": 2,
       "norm_label": "state_label"
     },
     {
@@ -4676,7 +4580,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "app_utils_echarts_tooltip_style",
-      "community": 47,
+      "community": 2,
       "norm_label": "tooltip_style"
     },
     {
@@ -5080,20 +4984,10 @@
       "norm_label": "dependencies"
     },
     {
-      "label": "@clickhouse/client",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "package_dependencies_clickhouse_client",
-      "community": 3,
-      "norm_label": "@clickhouse/client"
-    },
-    {
       "label": "@earendil-works/pi-coding-agent",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "package_dependencies_earendil_works_pi_coding_agent",
       "community": 3,
@@ -5103,7 +4997,7 @@
       "label": "@lucide/vue",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "package_dependencies_lucide_vue",
       "community": 3,
@@ -5113,7 +5007,7 @@
       "label": "@nuxtjs/color-mode",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "package_dependencies_nuxtjs_color_mode",
       "community": 3,
@@ -5123,7 +5017,7 @@
       "label": "@tailwindcss/vite",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_tailwindcss_vite",
       "community": 3,
@@ -5133,7 +5027,7 @@
       "label": "@tanstack/vue-table",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "package_dependencies_tanstack_vue_table",
       "community": 3,
@@ -5143,7 +5037,7 @@
       "label": "@vueuse/core",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "package_dependencies_vueuse_core",
       "community": 3,
@@ -5153,7 +5047,7 @@
       "label": "class-variance-authority",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "package_dependencies_class_variance_authority",
       "community": 3,
@@ -5163,7 +5057,7 @@
       "label": "clsx",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "package_dependencies_clsx",
       "community": 3,
@@ -5173,7 +5067,7 @@
       "label": "drizzle-orm",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "package_dependencies_drizzle_orm",
       "community": 3,
@@ -5183,17 +5077,17 @@
       "label": "echarts",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "package_dependencies_echarts",
-      "community": 47,
+      "community": 2,
       "norm_label": "echarts"
     },
     {
       "label": "nuxt",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "package_dependencies_nuxt",
       "community": 3,
@@ -5203,7 +5097,7 @@
       "label": "pg",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "package_dependencies_pg",
       "community": 3,
@@ -5213,7 +5107,7 @@
       "label": "reka-ui",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "package_dependencies_reka_ui",
       "community": 3,
@@ -5223,7 +5117,7 @@
       "label": "shadcn-vue",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "package_dependencies_shadcn_vue",
       "community": 3,
@@ -5233,7 +5127,7 @@
       "label": "tailwind-merge",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "package_dependencies_tailwind_merge",
       "community": 3,
@@ -5243,7 +5137,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "package_dependencies_tailwindcss",
       "community": 3,
@@ -5253,7 +5147,7 @@
       "label": "tw-animate-css",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "package_dependencies_tw_animate_css",
       "community": 3,
@@ -5263,7 +5157,7 @@
       "label": "vue",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "package_dependencies_vue",
       "community": 3,
@@ -5273,7 +5167,7 @@
       "label": "vue-echarts",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "package_dependencies_vue_echarts",
       "community": 3,
@@ -5283,7 +5177,7 @@
       "label": "vue-router",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "package_dependencies_vue_router",
       "community": 3,
@@ -5293,7 +5187,7 @@
       "label": "vue-sonner",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "package_dependencies_vue_sonner",
       "community": 3,
@@ -5303,7 +5197,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "package_devdependencies",
       "community": 3,
@@ -5313,7 +5207,7 @@
       "label": "@types/pg",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "package_devdependencies_types_pg",
       "community": 3,
@@ -5323,7 +5217,7 @@
       "label": "drizzle-kit",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "package_devdependencies_drizzle_kit",
       "community": 3,
@@ -5333,7 +5227,7 @@
       "label": "tsx",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "package_devdependencies_tsx",
       "community": 3,
@@ -5343,7 +5237,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "package_devdependencies_typescript",
       "community": 3,
@@ -5353,7 +5247,7 @@
       "label": "vue-tsc",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "package_devdependencies_vue_tsc",
       "community": 3,
@@ -5363,7 +5257,7 @@
       "label": "packageManager",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "package_packagemanager",
       "community": 3,
@@ -5376,7 +5270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_api_analytics_get",
-      "community": 53,
+      "community": 0,
       "norm_label": "analytics.get.ts"
     },
     {
@@ -5386,7 +5280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_api_collect_get",
-      "community": 32,
+      "community": 0,
       "norm_label": "collect.get.ts"
     },
     {
@@ -5396,7 +5290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_api_collect_post",
-      "community": 32,
+      "community": 0,
       "norm_label": "collect.post.ts"
     },
     {
@@ -5476,7 +5370,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_api_model_config_get",
-      "community": 32,
+      "community": 1,
       "norm_label": "config.get.ts"
     },
     {
@@ -5486,7 +5380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_api_model_config_put",
-      "community": 32,
+      "community": 1,
       "norm_label": "config.put.ts"
     },
     {
@@ -5496,7 +5390,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "server_api_model_config_put_thinking_levels",
-      "community": 32,
+      "community": 1,
       "norm_label": "thinking_levels"
     },
     {
@@ -5506,7 +5400,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_api_prs_id_state_post",
-      "community": 32,
+      "community": 0,
       "norm_label": "state.post.ts"
     },
     {
@@ -5526,7 +5420,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_api_prs_index_get",
-      "community": 32,
+      "community": 0,
       "norm_label": "index.get.ts"
     },
     {
@@ -5580,14 +5474,18 @@
       "norm_label": "run.post.ts"
     },
     {
-      "label": "sse()",
+      "label": "reviews/run.post SSE handler (per-file streaming review)",
       "file_type": "code",
       "source_file": "server/api/reviews/run.post.ts",
-      "source_location": "L11",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "server_api_reviews_run_post_sse",
-      "community": 0,
-      "norm_label": "sse()"
+      "community": 1,
+      "norm_label": "reviews/run.post sse handler (per-file streaming review)"
     },
     {
       "label": "start()",
@@ -5616,158 +5514,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_plugins_migrate",
-      "community": 32,
+      "community": 0,
       "norm_label": "migrate.ts"
-    },
-    {
-      "label": "analytics.ts",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics",
-      "community": 53,
-      "norm_label": "analytics.ts"
-    },
-    {
-      "label": "stateRatioQuery()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_stateratioquery",
-      "community": 53,
-      "norm_label": "stateratioquery()"
-    },
-    {
-      "label": "totalQuery()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L20",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_totalquery",
-      "community": 53,
-      "norm_label": "totalquery()"
-    },
-    {
-      "label": "repoCountQuery()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L29",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_repocountquery",
-      "community": 53,
-      "norm_label": "repocountquery()"
-    },
-    {
-      "label": "reviewStatsQuery()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_reviewstatsquery",
-      "community": 53,
-      "norm_label": "reviewstatsquery()"
-    },
-    {
-      "label": "perRepoQuery()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_perrepoquery",
-      "community": 53,
-      "norm_label": "perrepoquery()"
-    },
-    {
-      "label": "perAuthorQuery()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L70",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_perauthorquery",
-      "community": 53,
-      "norm_label": "perauthorquery()"
-    },
-    {
-      "label": "trendQuery()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L76",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_trendquery",
-      "community": 53,
-      "norm_label": "trendquery()"
-    },
-    {
-      "label": "reviewDecisionQuery()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L91",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_reviewdecisionquery",
-      "community": 53,
-      "norm_label": "reviewdecisionquery()"
-    },
-    {
-      "label": "mergeTimeQuery()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L99",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_mergetimequery",
-      "community": 53,
-      "norm_label": "mergetimequery()"
-    },
-    {
-      "label": "draftCountQuery()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L108",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_draftcountquery",
-      "community": 53,
-      "norm_label": "draftcountquery()"
-    },
-    {
-      "label": "codeChurnQuery()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L118",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_codechurnquery",
-      "community": 53,
-      "norm_label": "codechurnquery()"
-    },
-    {
-      "label": "getClickhouseAnalyticsData()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L126",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "community": 53,
-      "norm_label": "getclickhouseanalyticsdata()"
-    },
-    {
-      "label": "client.ts",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/client.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_client",
-      "community": 53,
-      "norm_label": "client.ts"
-    },
-    {
-      "label": "ch()",
-      "file_type": "code",
-      "source_file": "server/services/clickhouse/client.ts",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "server_services_clickhouse_client_ch",
-      "community": 53,
-      "norm_label": "ch()"
     },
     {
       "label": "config.ts",
@@ -5816,7 +5564,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_services_db_analytics",
-      "community": 32,
+      "community": 0,
       "norm_label": "analytics.ts"
     },
     {
@@ -5826,7 +5574,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "server_services_db_analytics_stateratioquery",
-      "community": 32,
+      "community": 0,
       "norm_label": "stateratioquery()"
     },
     {
@@ -5836,7 +5584,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "server_services_db_analytics_totalquery",
-      "community": 32,
+      "community": 0,
       "norm_label": "totalquery()"
     },
     {
@@ -5846,7 +5594,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "server_services_db_analytics_repocountquery",
-      "community": 32,
+      "community": 0,
       "norm_label": "repocountquery()"
     },
     {
@@ -5856,7 +5604,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "server_services_db_analytics_reviewstatsquery",
-      "community": 32,
+      "community": 0,
       "norm_label": "reviewstatsquery()"
     },
     {
@@ -5866,7 +5614,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "server_services_db_analytics_perrepoquery",
-      "community": 32,
+      "community": 0,
       "norm_label": "perrepoquery()"
     },
     {
@@ -5876,7 +5624,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "server_services_db_analytics_perauthorquery",
-      "community": 32,
+      "community": 0,
       "norm_label": "perauthorquery()"
     },
     {
@@ -5886,58 +5634,22 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "server_services_db_analytics_trendquery",
-      "community": 32,
+      "community": 0,
       "norm_label": "trendquery()"
     },
     {
-      "label": "mergeTimeQuery()",
+      "label": "getAnalyticsData (dashboard analytics queries)",
       "file_type": "code",
       "source_file": "server/services/db/analytics.ts",
-      "source_location": "L72",
+      "source_location": null,
       "_origin": "ast",
-      "id": "server_services_db_analytics_mergetimequery",
-      "community": 32,
-      "norm_label": "mergetimequery()"
-    },
-    {
-      "label": "draftCountQuery()",
-      "file_type": "code",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L80",
-      "_origin": "ast",
-      "id": "server_services_db_analytics_draftcountquery",
-      "community": 32,
-      "norm_label": "draftcountquery()"
-    },
-    {
-      "label": "reviewDecisionQuery()",
-      "file_type": "code",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L87",
-      "_origin": "ast",
-      "id": "server_services_db_analytics_reviewdecisionquery",
-      "community": 32,
-      "norm_label": "reviewdecisionquery()"
-    },
-    {
-      "label": "codeChurnQuery()",
-      "file_type": "code",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L94",
-      "_origin": "ast",
-      "id": "server_services_db_analytics_codechurnquery",
-      "community": 32,
-      "norm_label": "codechurnquery()"
-    },
-    {
-      "label": "getAnalyticsData()",
-      "file_type": "code",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L106",
-      "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "server_services_db_analytics_getanalyticsdata",
-      "community": 32,
-      "norm_label": "getanalyticsdata()"
+      "community": 0,
+      "norm_label": "getanalyticsdata (dashboard analytics queries)"
     },
     {
       "label": "client.ts",
@@ -5946,7 +5658,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_services_db_client",
-      "community": 32,
+      "community": 0,
       "norm_label": "client.ts"
     },
     {
@@ -5956,7 +5668,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "server_services_db_client_db",
-      "community": 32,
+      "community": 0,
       "norm_label": "db()"
     },
     {
@@ -5966,7 +5678,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_services_db_model_config",
-      "community": 32,
+      "community": 1,
       "norm_label": "model-config.ts"
     },
     {
@@ -5976,7 +5688,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "server_services_db_model_config_modelconfig",
-      "community": 32,
+      "community": 1,
       "norm_label": "modelconfig"
     },
     {
@@ -5986,7 +5698,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "server_services_db_model_config_getmodelconfig",
-      "community": 32,
+      "community": 1,
       "norm_label": "getmodelconfig()"
     },
     {
@@ -5996,7 +5708,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "server_services_db_model_config_setmodelconfig",
-      "community": 32,
+      "community": 1,
       "norm_label": "setmodelconfig()"
     },
     {
@@ -6006,7 +5718,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_services_db_prs",
-      "community": 32,
+      "community": 0,
       "norm_label": "prs.ts"
     },
     {
@@ -6016,7 +5728,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "server_services_db_prs_prrow",
-      "community": 32,
+      "community": 0,
       "norm_label": "prrow"
     },
     {
@@ -6026,7 +5738,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "server_services_db_prs_prbase",
-      "community": 32,
+      "community": 0,
       "norm_label": "prbase"
     },
     {
@@ -6036,7 +5748,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "server_services_db_prs_topr",
-      "community": 32,
+      "community": 0,
       "norm_label": "topr()"
     },
     {
@@ -6046,7 +5758,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "server_services_db_prs_baseselect",
-      "community": 32,
+      "community": 0,
       "norm_label": "baseselect"
     },
     {
@@ -6056,7 +5768,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "server_services_db_prs_reviewcountsfor",
-      "community": 32,
+      "community": 0,
       "norm_label": "reviewcountsfor()"
     },
     {
@@ -6066,7 +5778,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "server_services_db_prs_upsertpr",
-      "community": 32,
+      "community": 0,
       "norm_label": "upsertpr()"
     },
     {
@@ -6076,7 +5788,7 @@
       "source_location": "L124",
       "_origin": "ast",
       "id": "server_services_db_prs_listprs",
-      "community": 32,
+      "community": 0,
       "norm_label": "listprs()"
     },
     {
@@ -6086,7 +5798,7 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "server_services_db_prs_countprs",
-      "community": 32,
+      "community": 0,
       "norm_label": "countprs()"
     },
     {
@@ -6096,7 +5808,7 @@
       "source_location": "L155",
       "_origin": "ast",
       "id": "server_services_db_prs_updateprstate",
-      "community": 32,
+      "community": 0,
       "norm_label": "updateprstate()"
     },
     {
@@ -6106,7 +5818,7 @@
       "source_location": "L159",
       "_origin": "ast",
       "id": "server_services_db_prs_getprwhere",
-      "community": 32,
+      "community": 0,
       "norm_label": "getprwhere()"
     },
     {
@@ -6116,7 +5828,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "server_services_db_prs_getpr",
-      "community": 32,
+      "community": 0,
       "norm_label": "getpr()"
     },
     {
@@ -6126,7 +5838,7 @@
       "source_location": "L170",
       "_origin": "ast",
       "id": "server_services_db_prs_getprbykey",
-      "community": 32,
+      "community": 0,
       "norm_label": "getprbykey()"
     },
     {
@@ -6136,7 +5848,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_services_db_repos",
-      "community": 32,
+      "community": 0,
       "norm_label": "repos.ts"
     },
     {
@@ -6146,7 +5858,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "server_services_db_repos_reporow",
-      "community": 32,
+      "community": 0,
       "norm_label": "reporow"
     },
     {
@@ -6156,7 +5868,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "server_services_db_repos_torepo",
-      "community": 32,
+      "community": 0,
       "norm_label": "torepo()"
     },
     {
@@ -6166,7 +5878,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "server_services_db_repos_upsertrepo",
-      "community": 32,
+      "community": 0,
       "norm_label": "upsertrepo()"
     },
     {
@@ -6176,7 +5888,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "server_services_db_repos_listrepos",
-      "community": 32,
+      "community": 0,
       "norm_label": "listrepos()"
     },
     {
@@ -6186,7 +5898,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "server_services_db_repos_isfresh",
-      "community": 32,
+      "community": 0,
       "norm_label": "isfresh()"
     },
     {
@@ -6196,7 +5908,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "server_services_db_repos_markcollected",
-      "community": 32,
+      "community": 0,
       "norm_label": "markcollected()"
     },
     {
@@ -6386,7 +6098,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server_services_db_schema",
-      "community": 32,
+      "community": 0,
       "norm_label": "schema.ts"
     },
     {
@@ -6396,7 +6108,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "server_services_db_schema_repos",
-      "community": 32,
+      "community": 0,
       "norm_label": "repos"
     },
     {
@@ -6406,7 +6118,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "server_services_db_schema_prs",
-      "community": 32,
+      "community": 0,
       "norm_label": "prs"
     },
     {
@@ -6416,7 +6128,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "server_services_db_schema_reviews",
-      "community": 32,
+      "community": 0,
       "norm_label": "reviews"
     },
     {
@@ -6426,7 +6138,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "server_services_db_schema_comments",
-      "community": 32,
+      "community": 0,
       "norm_label": "comments"
     },
     {
@@ -6436,7 +6148,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "server_services_db_schema_modelconfig",
-      "community": 32,
+      "community": 1,
       "norm_label": "modelconfig"
     },
     {
@@ -6470,24 +6182,32 @@
       "norm_label": "ghstatus"
     },
     {
-      "label": "getGhStatus()",
+      "label": "getGhStatus (gh auth status)",
       "file_type": "code",
       "source_file": "server/services/ghAuth.ts",
-      "source_location": "L16",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "server_services_ghauth_getghstatus",
       "community": 15,
-      "norm_label": "getghstatus()"
+      "norm_label": "getghstatus (gh auth status)"
     },
     {
-      "label": "startGhLogin()",
+      "label": "startGhLogin (device OAuth flow)",
       "file_type": "code",
       "source_file": "server/services/ghAuth.ts",
-      "source_location": "L35",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "server_services_ghauth_startghlogin",
       "community": 15,
-      "norm_label": "startghlogin()"
+      "norm_label": "startghlogin (device oauth flow)"
     },
     {
       "label": "cancelGhLogin()",
@@ -6700,14 +6420,18 @@
       "norm_label": "prompt.ts"
     },
     {
-      "label": "buildReviewUserPrompt()",
+      "label": "buildReviewUserPrompt (per-file review mode)",
       "file_type": "code",
       "source_file": "server/services/review/prompt.ts",
-      "source_location": "L36",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "server_services_review_prompt_buildreviewuserprompt",
       "community": 1,
-      "norm_label": "buildreviewuserprompt()"
+      "norm_label": "buildreviewuserprompt (per-file review mode)"
     },
     {
       "label": "runner.ts",
@@ -6760,34 +6484,46 @@
       "norm_label": "agentmessage"
     },
     {
-      "label": "lastAssistantText()",
+      "label": "lastAssistantText (extract last assistant reply)",
       "file_type": "code",
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L40",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "server_services_review_runner_lastassistanttext",
       "community": 1,
-      "norm_label": "lastassistanttext()"
+      "norm_label": "lastassistanttext (extract last assistant reply)"
     },
     {
-      "label": "cleanText()",
+      "label": "cleanText (strip think tags)",
       "file_type": "code",
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L67",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "server_services_review_runner_cleantext",
       "community": 1,
-      "norm_label": "cleantext()"
+      "norm_label": "cleantext (strip think tags)"
     },
     {
-      "label": "isTransientError()",
+      "label": "isTransientError (retry 403/429/rate-limit)",
       "file_type": "code",
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L75",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "server_services_review_runner_istransienterror",
       "community": 1,
-      "norm_label": "istransienterror()"
+      "norm_label": "istransienterror (retry 403/429/rate-limit)"
     },
     {
       "label": "delay()",
@@ -6800,34 +6536,46 @@
       "norm_label": "delay()"
     },
     {
-      "label": "extractJson()",
+      "label": "extractJson (auto-repair AI JSON)",
       "file_type": "code",
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L84",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "server_services_review_runner_extractjson",
       "community": 1,
-      "norm_label": "extractjson()"
+      "norm_label": "extractjson (auto-repair ai json)"
     },
     {
-      "label": "parseReviewResult()",
+      "label": "parseReviewResult (robust JSON parse)",
       "file_type": "code",
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L141",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "server_services_review_runner_parsereviewresult",
       "community": 1,
-      "norm_label": "parsereviewresult()"
+      "norm_label": "parsereviewresult (robust json parse)"
     },
     {
-      "label": "runReview()",
+      "label": "runReview (Pi agent review runner)",
       "file_type": "code",
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L153",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "server_services_review_runner_runreview",
       "community": 1,
-      "norm_label": "runreview()"
+      "norm_label": "runreview (pi agent review runner)"
     },
     {
       "label": "diff-parser.ts",
@@ -6840,34 +6588,46 @@
       "norm_label": "diff-parser.ts"
     },
     {
-      "label": "parseDiff()",
+      "label": "parseDiff (unified diff parser)",
       "file_type": "code",
       "source_file": "shared/diff-parser.ts",
-      "source_location": "L7",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "shared_diff_parser_parsediff",
-      "community": 0,
-      "norm_label": "parsediff()"
+      "community": 1,
+      "norm_label": "parsediff (unified diff parser)"
     },
     {
-      "label": "hunkLineRanges()",
+      "label": "hunkLineRanges (diff new-line numbers)",
       "file_type": "code",
       "source_file": "shared/diff-parser.ts",
-      "source_location": "L65",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "shared_diff_parser_hunklineranges",
       "community": 26,
-      "norm_label": "hunklineranges()"
+      "norm_label": "hunklineranges (diff new-line numbers)"
     },
     {
-      "label": "clampToHunkLine()",
+      "label": "clampToHunkLine (clamp comment line to diff)",
       "file_type": "code",
       "source_file": "shared/diff-parser.ts",
-      "source_location": "L80",
+      "source_location": null,
       "_origin": "ast",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
       "id": "shared_diff_parser_clamptohunkline",
       "community": 26,
-      "norm_label": "clamptohunkline()"
+      "norm_label": "clamptohunkline (clamp comment line to diff)"
     },
     {
       "label": "types.ts",
@@ -7050,30 +6810,10 @@
       "norm_label": "trendpoint"
     },
     {
-      "label": "ChurnPoint",
-      "file_type": "code",
-      "source_file": "shared/types.ts",
-      "source_location": "L127",
-      "_origin": "ast",
-      "id": "shared_types_churnpoint",
-      "community": 12,
-      "norm_label": "churnpoint"
-    },
-    {
-      "label": "ReviewDecisionCount",
-      "file_type": "code",
-      "source_file": "shared/types.ts",
-      "source_location": "L133",
-      "_origin": "ast",
-      "id": "shared_types_reviewdecisioncount",
-      "community": 12,
-      "norm_label": "reviewdecisioncount"
-    },
-    {
       "label": "AnalyticsData",
       "file_type": "code",
       "source_file": "shared/types.ts",
-      "source_location": "L138",
+      "source_location": "L127",
       "_origin": "ast",
       "id": "shared_types_analyticsdata",
       "community": 12,
@@ -7110,256 +6850,6 @@
       "norm_label": "references"
     },
     {
-      "label": "AGENTS.md",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "agents",
-      "community": 56,
-      "norm_label": "agents.md"
-    },
-    {
-      "label": "This is NOT the Next.js you know",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "agents_this_is_not_the_next_js_you_know",
-      "community": 56,
-      "norm_label": "this is not the next.js you know"
-    },
-    {
-      "label": "CLAUDE.md",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "claude",
-      "community": 58,
-      "norm_label": "claude.md"
-    },
-    {
-      "label": "PLAN.md",
-      "file_type": "document",
-      "source_file": "PLAN.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "plan",
-      "community": 54,
-      "norm_label": "plan.md"
-    },
-    {
-      "label": "Migrasi Next.js \u2192 Nuxt.js (Vue 3) + PostgreSQL + Docker",
-      "file_type": "document",
-      "source_file": "PLAN.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "plan_migrasi_next_js_nuxt_js_vue_3_postgresql_docker",
-      "community": 54,
-      "norm_label": "migrasi next.js \u2192 nuxt.js (vue 3) + postgresql + docker"
-    },
-    {
-      "label": "Context",
-      "file_type": "document",
-      "source_file": "PLAN.md",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "plan_context",
-      "community": 54,
-      "norm_label": "context"
-    },
-    {
-      "label": "Approach",
-      "file_type": "document",
-      "source_file": "PLAN.md",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "plan_approach",
-      "community": 54,
-      "norm_label": "approach"
-    },
-    {
-      "label": "Database: SQLite \u2192 PostgreSQL",
-      "file_type": "document",
-      "source_file": "PLAN.md",
-      "source_location": "L47",
-      "_origin": "ast",
-      "id": "plan_database_sqlite_postgresql",
-      "community": 54,
-      "norm_label": "database: sqlite \u2192 postgresql"
-    },
-    {
-      "label": "Files to modify",
-      "file_type": "document",
-      "source_file": "PLAN.md",
-      "source_location": "L89",
-      "_origin": "ast",
-      "id": "plan_files_to_modify",
-      "community": 54,
-      "norm_label": "files to modify"
-    },
-    {
-      "label": "Reuse",
-      "file_type": "document",
-      "source_file": "PLAN.md",
-      "source_location": "L118",
-      "_origin": "ast",
-      "id": "plan_reuse",
-      "community": 54,
-      "norm_label": "reuse"
-    },
-    {
-      "label": "Steps",
-      "file_type": "document",
-      "source_file": "PLAN.md",
-      "source_location": "L126",
-      "_origin": "ast",
-      "id": "plan_steps",
-      "community": 54,
-      "norm_label": "steps"
-    },
-    {
-      "label": "Verification",
-      "file_type": "document",
-      "source_file": "PLAN.md",
-      "source_location": "L142",
-      "_origin": "ast",
-      "id": "plan_verification",
-      "community": 54,
-      "norm_label": "verification"
-    },
-    {
-      "label": "Risiko / Catatan",
-      "file_type": "document",
-      "source_file": "PLAN.md",
-      "source_location": "L155",
-      "_origin": "ast",
-      "id": "plan_risiko_catatan",
-      "community": 54,
-      "norm_label": "risiko / catatan"
-    },
-    {
-      "label": "Struktur Komponen & Clean Code (wajib)",
-      "file_type": "document",
-      "source_file": "PLAN.md",
-      "source_location": "L165",
-      "_origin": "ast",
-      "id": "plan_struktur_komponen_clean_code_wajib",
-      "community": 54,
-      "norm_label": "struktur komponen & clean code (wajib)"
-    },
-    {
-      "label": "README.md",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "readme",
-      "community": 55,
-      "norm_label": "readme.md"
-    },
-    {
-      "label": "Review Monitor",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "readme_review_monitor",
-      "community": 55,
-      "norm_label": "review monitor"
-    },
-    {
-      "label": "Tech Stack",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "readme_tech_stack",
-      "community": 55,
-      "norm_label": "tech stack"
-    },
-    {
-      "label": "Fitur Utama",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "readme_fitur_utama",
-      "community": 55,
-      "norm_label": "fitur utama"
-    },
-    {
-      "label": "Menjalankan Secara Lokal",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "readme_menjalankan_secara_lokal",
-      "community": 55,
-      "norm_label": "menjalankan secara lokal"
-    },
-    {
-      "label": "1. Prerequisites",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L40",
-      "_origin": "ast",
-      "id": "readme_1_prerequisites",
-      "community": 55,
-      "norm_label": "1. prerequisites"
-    },
-    {
-      "label": "2. Konfigurasi Environment (`.env`)",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L46",
-      "_origin": "ast",
-      "id": "readme_2_konfigurasi_environment_env",
-      "community": 55,
-      "norm_label": "2. konfigurasi environment (`.env`)"
-    },
-    {
-      "label": "3. Migrasi Database",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L54",
-      "_origin": "ast",
-      "id": "readme_3_migrasi_database",
-      "community": 55,
-      "norm_label": "3. migrasi database"
-    },
-    {
-      "label": "4. Jalankan Dev Server",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L60",
-      "_origin": "ast",
-      "id": "readme_4_jalankan_dev_server",
-      "community": 55,
-      "norm_label": "4. jalankan dev server"
-    },
-    {
-      "label": "Menjalankan dengan Docker Compose",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L68",
-      "_origin": "ast",
-      "id": "readme_menjalankan_dengan_docker_compose",
-      "community": 55,
-      "norm_label": "menjalankan dengan docker compose"
-    },
-    {
-      "label": "Testing & Type Checking",
-      "file_type": "document",
-      "source_file": "README.md",
-      "source_location": "L80",
-      "_origin": "ast",
-      "id": "readme_testing_type_checking",
-      "community": 55,
-      "norm_label": "testing & type checking"
-    },
-    {
       "label": "REVIEW_SYSTEM_PROMPT (Bahasa Indonesia code review rules)",
       "file_type": "code",
       "source_file": "server/services/review/prompt.ts",
@@ -7368,9 +6858,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 75,
-      "norm_label": "review_system_prompt (bahasa indonesia code review rules)",
-      "id": "server_services_review_prompt_reviewsystemprompt"
+      "id": "server_services_review_prompt_reviewsystemprompt",
+      "community": 1,
+      "norm_label": "review_system_prompt (bahasa indonesia code review rules)"
     },
     {
       "label": "Shared domain types (PR, Review, Diff)",
@@ -7381,9 +6871,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 76,
-      "norm_label": "shared domain types (pr, review, diff)",
-      "id": "shared_types_types"
+      "id": "shared_types_types",
+      "community": 1,
+      "norm_label": "shared domain types (pr, review, diff)"
     },
     {
       "label": "configPaths (resolve models.json/auth.json location)",
@@ -7394,9 +6884,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 68,
-      "norm_label": "configpaths (resolve models.json/auth.json location)",
-      "id": "model_configpaths_configpaths"
+      "id": "model_configpaths_configpaths",
+      "community": 1,
+      "norm_label": "configpaths (resolve models.json/auth.json location)"
     },
     {
       "label": "getModelConfig / setModelConfig (DB model config)",
@@ -7407,9 +6897,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 67,
-      "norm_label": "getmodelconfig / setmodelconfig (db model config)",
-      "id": "db_modelconfig_getmodelconfig"
+      "id": "db_modelconfig_getmodelconfig",
+      "community": 1,
+      "norm_label": "getmodelconfig / setmodelconfig (db model config)"
     },
     {
       "label": "Drizzle pg schema (repos, prs, reviews, comments, model_config)",
@@ -7420,9 +6910,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 73,
-      "norm_label": "drizzle pg schema (repos, prs, reviews, comments, model_config)",
-      "id": "server_services_db_schema_schema"
+      "id": "server_services_db_schema_schema",
+      "community": 1,
+      "norm_label": "drizzle pg schema (repos, prs, reviews, comments, model_config)"
     },
     {
       "label": "gh CLI GitHub integration (execFile)",
@@ -7433,9 +6923,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 74,
-      "norm_label": "gh cli github integration (execfile)",
-      "id": "server_services_github_gha_gh"
+      "id": "server_services_github_gha_gh",
+      "community": 15,
+      "norm_label": "gh cli github integration (execfile)"
     },
     {
       "label": "Pi Coding Agent SDK (@earendil-works/pi-coding-agent)",
@@ -7446,9 +6936,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 64,
-      "norm_label": "pi coding agent sdk (@earendil-works/pi-coding-agent)",
-      "id": "concept_pi_agent"
+      "id": "concept_pi_agent",
+      "community": 1,
+      "norm_label": "pi coding agent sdk (@earendil-works/pi-coding-agent)"
     },
     {
       "label": "Server-Sent Events live review streaming",
@@ -7459,9 +6949,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 65,
-      "norm_label": "server-sent events live review streaming",
-      "id": "concept_sse_streaming"
+      "id": "concept_sse_streaming",
+      "community": 1,
+      "norm_label": "server-sent events live review streaming"
     },
     {
       "label": "Line clamping to prevent wrong GitHub comment lines",
@@ -7472,9 +6962,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
-      "norm_label": "line clamping to prevent wrong github comment lines",
-      "id": "concept_line_clamping"
+      "id": "concept_line_clamping",
+      "community": 1,
+      "norm_label": "line clamping to prevent wrong github comment lines"
     },
     {
       "label": "GitHub Device OAuth flow via gh CLI",
@@ -7485,9 +6975,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 60,
-      "norm_label": "github device oauth flow via gh cli",
-      "id": "concept_device_oauth"
+      "id": "concept_device_oauth",
+      "community": 15,
+      "norm_label": "github device oauth flow via gh cli"
     },
     {
       "label": "Per-file review mode (one AI review per diff file)",
@@ -7498,9 +6988,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 63,
-      "norm_label": "per-file review mode (one ai review per diff file)",
-      "id": "concept_per_file_review"
+      "id": "concept_per_file_review",
+      "community": 1,
+      "norm_label": "per-file review mode (one ai review per diff file)"
     },
     {
       "label": "AI JSON output auto-repair (truncation, trailing comma)",
@@ -7511,9 +7001,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 61,
-      "norm_label": "ai json output auto-repair (truncation, trailing comma)",
-      "id": "concept_json_autorepair"
+      "id": "concept_json_autorepair",
+      "community": 1,
+      "norm_label": "ai json output auto-repair (truncation, trailing comma)"
     },
     {
       "label": "Transient API error retry (rate limit, 403, 429)",
@@ -7524,9 +7014,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 66,
-      "norm_label": "transient api error retry (rate limit, 403, 429)",
-      "id": "concept_transient_retry"
+      "id": "concept_transient_retry",
+      "community": 1,
+      "norm_label": "transient api error retry (rate limit, 403, 429)"
     },
     {
       "label": "App-owned pi config (server/config) not ~/.pi/agent",
@@ -7537,9 +7027,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 59,
-      "norm_label": "app-owned pi config (server/config) not ~/.pi/agent",
-      "id": "concept_appowned_config"
+      "id": "concept_appowned_config",
+      "community": 1,
+      "norm_label": "app-owned pi config (server/config) not ~/.pi/agent"
     },
     {
       "label": "Next.js \u2192 Nuxt + PostgreSQL + Drizzle migration plan",
@@ -7550,9 +7040,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 70,
-      "norm_label": "next.js \u2192 nuxt + postgresql + drizzle migration plan",
-      "id": "plan_migration"
+      "id": "plan_migration",
+      "community": 1,
+      "norm_label": "next.js \u2192 nuxt + postgresql + drizzle migration plan"
     },
     {
       "label": "Review Monitor README (features, setup)",
@@ -7563,9 +7053,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 71,
-      "norm_label": "review monitor readme (features, setup)",
-      "id": "readme_readme"
+      "id": "readme_readme",
+      "community": 1,
+      "norm_label": "review monitor readme (features, setup)"
     },
     {
       "label": "models.json providers config (nine-router, OpenAI-compatible)",
@@ -7576,9 +7066,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 72,
-      "norm_label": "models.json providers config (nine-router, openai-compatible)",
-      "id": "server_config_models_modelsjson"
+      "id": "server_config_models_modelsjson",
+      "community": 1,
+      "norm_label": "models.json providers config (nine-router, openai-compatible)"
     },
     {
       "label": "nuxt.config.ts (ui auto-import, color-mode, nitro externals)",
@@ -7589,9 +7079,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 69,
-      "norm_label": "nuxt.config.ts (ui auto-import, color-mode, nitro externals)",
-      "id": "nuxt_config_nuxtconfig"
+      "id": "nuxt_config_nuxtconfig",
+      "community": 1,
+      "norm_label": "nuxt.config.ts (ui auto-import, color-mode, nitro externals)"
     }
   ],
   "links": [
@@ -7631,16 +7121,6 @@
       "confidence": "EXTRACTED",
       "source_file": "app/components/analytics/analytics-kpis.vue",
       "source_location": "L15",
-      "weight": 1.0,
-      "source": "app_components_analytics_analytics_kpis",
-      "target": "app_components_analytics_analytics_kpis_formatnum",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/components/analytics/analytics-kpis.vue",
-      "source_location": "L21",
       "weight": 1.0,
       "source": "app_components_analytics_analytics_kpis",
       "target": "app_components_analytics_analytics_kpis_kpis",
@@ -7705,98 +7185,6 @@
       "source_location": "L3",
       "weight": 1.0,
       "source": "app_components_analytics_author_chart",
-      "target": "app_utils_echarts",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/components/analytics/churn-chart.vue",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "app_components_analytics_churn_chart",
-      "target": "app_components_analytics_churn_chart_option",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/components/analytics/churn-chart.vue",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "app_components_analytics_churn_chart",
-      "target": "app_components_analytics_churn_chart_props",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/components/analytics/churn-chart.vue",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "app_components_analytics_churn_chart",
-      "target": "app_components_analytics_churn_chart_ready",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/components/analytics/churn-chart.vue",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "app_components_analytics_churn_chart",
-      "target": "app_utils_echarts",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/components/analytics/decision-chart.vue",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "app_components_analytics_decision_chart",
-      "target": "app_components_analytics_decision_chart_decision_colors",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/components/analytics/decision-chart.vue",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "app_components_analytics_decision_chart",
-      "target": "app_components_analytics_decision_chart_option",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/components/analytics/decision-chart.vue",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "app_components_analytics_decision_chart",
-      "target": "app_components_analytics_decision_chart_props",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/components/analytics/decision-chart.vue",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "app_components_analytics_decision_chart",
-      "target": "app_components_analytics_decision_chart_ready",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/components/analytics/decision-chart.vue",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "app_components_analytics_decision_chart",
       "target": "app_utils_echarts",
       "confidence_score": 1.0
     },
@@ -13227,6 +12615,26 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "app/composables/useReview.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "app_composables_usereview_usereview",
+      "target": "concept_sse_streaming"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/composables/useReview.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "app_composables_usereview_usereview",
+      "target": "server_api_reviews_run_post_sse"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/layouts/default.vue",
@@ -13290,7 +12698,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/index.vue",
-      "source_location": "L11",
+      "source_location": "L9",
       "weight": 1.0,
       "source": "app_pages_index",
       "target": "app_pages_index_data_error",
@@ -13301,7 +12709,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/pages/index.vue",
-      "source_location": "L9",
+      "source_location": "L7",
       "weight": 1.0,
       "source": "app_pages_index",
       "target": "shared_types",
@@ -13484,7 +12892,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "weight": 1.0,
       "context": "import",
       "source": "package_dependencies_echarts",
@@ -13746,7 +13154,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L37",
       "weight": 1.0,
       "source": "package",
       "target": "package_devdependencies",
@@ -13766,7 +13174,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L44",
       "weight": 1.0,
       "source": "package",
       "target": "package_packagemanager",
@@ -13876,7 +13284,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_class_variance_authority",
@@ -13886,17 +13294,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_clickhouse_client",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_clsx",
@@ -13906,7 +13304,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_drizzle_orm",
@@ -13916,7 +13314,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_earendil_works_pi_coding_agent",
@@ -13926,7 +13324,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_echarts",
@@ -13936,7 +13334,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_lucide_vue",
@@ -13946,7 +13344,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_nuxt",
@@ -13956,7 +13354,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_nuxtjs_color_mode",
@@ -13966,7 +13364,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_pg",
@@ -13976,7 +13374,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L27",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_reka_ui",
@@ -13986,7 +13384,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L28",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_shadcn_vue",
@@ -13996,7 +13394,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L29",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_tailwind_merge",
@@ -14006,7 +13404,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L30",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_tailwindcss",
@@ -14016,7 +13414,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_tailwindcss_vite",
@@ -14026,7 +13424,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_tanstack_vue_table",
@@ -14036,7 +13434,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L31",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_tw_animate_css",
@@ -14046,7 +13444,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L32",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_vue",
@@ -14056,7 +13454,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L33",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_vue_echarts",
@@ -14066,7 +13464,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L34",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_vue_router",
@@ -14076,7 +13474,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L35",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_vue_sonner",
@@ -14086,41 +13484,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L20",
       "weight": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_vueuse_core",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L15",
-      "weight": 1.0,
-      "context": "import",
-      "source": "package_dependencies_clickhouse_client",
-      "target": "server_services_clickhouse_client",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_drizzle_kit",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L41",
-      "weight": 1.0,
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_tsx",
       "confidence_score": 1.0
     },
     {
@@ -14130,6 +13497,26 @@
       "source_location": "L39",
       "weight": 1.0,
       "source": "package_devdependencies",
+      "target": "package_devdependencies_drizzle_kit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "package_devdependencies",
       "target": "package_devdependencies_types_pg",
       "confidence_score": 1.0
     },
@@ -14137,7 +13524,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L41",
       "weight": 1.0,
       "source": "package_devdependencies",
       "target": "package_devdependencies_typescript",
@@ -14147,32 +13534,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L42",
       "weight": 1.0,
       "source": "package_devdependencies",
       "target": "package_devdependencies_vue_tsc",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/api/analytics.get.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "server_api_analytics_get",
-      "target": "server_services_clickhouse_analytics",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/api/analytics.get.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "server_api_analytics_get",
-      "target": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
       "confidence_score": 1.0
     },
     {
@@ -15195,6 +14560,76 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "server/api/reviews/run.post.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_api_reviews_run_post_sse",
+      "target": "concept_per_file_review"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "server/api/reviews/run.post.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_api_reviews_run_post_sse",
+      "target": "concept_sse_streaming"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "server/api/reviews/run.post.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_api_reviews_run_post_sse",
+      "target": "server_services_db_schema_schema"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/api/reviews/run.post.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_api_reviews_run_post_sse",
+      "target": "server_services_github_gha_gh"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/api/reviews/run.post.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_api_reviews_run_post_sse",
+      "target": "server_services_review_runner_runreview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/api/reviews/run.post.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_api_reviews_run_post_sse",
+      "target": "shared_diff_parser_clamptohunkline"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/api/reviews/run.post.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_api_reviews_run_post_sse",
+      "target": "shared_diff_parser_parsediff"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -15274,422 +14709,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L118",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_codechurnquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L108",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_draftcountquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L126",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L99",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_mergetimequery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L70",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_perauthorquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L53",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_perrepoquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_repocountquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L91",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_reviewdecisionquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_reviewstatsquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_stateratioquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_totalquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L76",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_analytics_trendquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_client",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics",
-      "target": "shared_types",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L128",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "target": "server_services_clickhouse_analytics_stateratioquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_stateratioquery",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L129",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "target": "server_services_clickhouse_analytics_totalquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_totalquery",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L130",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "target": "server_services_clickhouse_analytics_repocountquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L30",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_repocountquery",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L131",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "target": "server_services_clickhouse_analytics_reviewstatsquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L39",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_reviewstatsquery",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L132",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "target": "server_services_clickhouse_analytics_perrepoquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L54",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_perrepoquery",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L133",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "target": "server_services_clickhouse_analytics_perauthorquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L71",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_perauthorquery",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L134",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "target": "server_services_clickhouse_analytics_trendquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L77",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_trendquery",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L137",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "target": "server_services_clickhouse_analytics_reviewdecisionquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L92",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_reviewdecisionquery",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L135",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "target": "server_services_clickhouse_analytics_mergetimequery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L100",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_mergetimequery",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L109",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_draftcountquery",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L136",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "target": "server_services_clickhouse_analytics_draftcountquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L119",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_codechurnquery",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/analytics.ts",
-      "source_location": "L138",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_analytics_getclickhouseanalyticsdata",
-      "target": "server_services_clickhouse_analytics_codechurnquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/client.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_client",
-      "target": "server_services_clickhouse_client",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/clickhouse/client.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "server_services_clickhouse_client",
-      "target": "server_services_clickhouse_client_ch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "server/services/config.ts",
       "source_location": "L4",
       "weight": 1.0,
@@ -15721,40 +14740,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/services/db/analytics.ts",
-      "source_location": "L94",
-      "weight": 1.0,
-      "source": "server_services_db_analytics",
-      "target": "server_services_db_analytics_codechurnquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L80",
-      "weight": 1.0,
-      "source": "server_services_db_analytics",
-      "target": "server_services_db_analytics_draftcountquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L106",
-      "weight": 1.0,
-      "source": "server_services_db_analytics",
-      "target": "server_services_db_analytics_getanalyticsdata",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/db/analytics.ts",
       "source_location": "L72",
       "weight": 1.0,
       "source": "server_services_db_analytics",
-      "target": "server_services_db_analytics_mergetimequery",
+      "target": "server_services_db_analytics_getanalyticsdata",
       "confidence_score": 1.0
     },
     {
@@ -15785,16 +14774,6 @@
       "weight": 1.0,
       "source": "server_services_db_analytics",
       "target": "server_services_db_analytics_repocountquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L87",
-      "weight": 1.0,
-      "source": "server_services_db_analytics",
-      "target": "server_services_db_analytics_reviewdecisionquery",
       "confidence_score": 1.0
     },
     {
@@ -15875,7 +14854,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/services/db/analytics.ts",
-      "source_location": "L108",
+      "source_location": "L74",
       "weight": 1.0,
       "source": "server_services_db_analytics_getanalyticsdata",
       "target": "server_services_db_analytics_stateratioquery",
@@ -15897,7 +14876,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/services/db/analytics.ts",
-      "source_location": "L109",
+      "source_location": "L75",
       "weight": 1.0,
       "source": "server_services_db_analytics_getanalyticsdata",
       "target": "server_services_db_analytics_totalquery",
@@ -15919,7 +14898,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/services/db/analytics.ts",
-      "source_location": "L110",
+      "source_location": "L76",
       "weight": 1.0,
       "source": "server_services_db_analytics_getanalyticsdata",
       "target": "server_services_db_analytics_repocountquery",
@@ -15941,7 +14920,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/services/db/analytics.ts",
-      "source_location": "L111",
+      "source_location": "L77",
       "weight": 1.0,
       "source": "server_services_db_analytics_getanalyticsdata",
       "target": "server_services_db_analytics_reviewstatsquery",
@@ -15963,7 +14942,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/services/db/analytics.ts",
-      "source_location": "L112",
+      "source_location": "L78",
       "weight": 1.0,
       "source": "server_services_db_analytics_getanalyticsdata",
       "target": "server_services_db_analytics_perrepoquery",
@@ -15985,7 +14964,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/services/db/analytics.ts",
-      "source_location": "L113",
+      "source_location": "L79",
       "weight": 1.0,
       "source": "server_services_db_analytics_getanalyticsdata",
       "target": "server_services_db_analytics_perauthorquery",
@@ -16007,7 +14986,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/services/db/analytics.ts",
-      "source_location": "L114",
+      "source_location": "L80",
       "weight": 1.0,
       "source": "server_services_db_analytics_getanalyticsdata",
       "target": "server_services_db_analytics_trendquery",
@@ -16025,92 +15004,24 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
       "source_file": "server/services/db/analytics.ts",
-      "source_location": "L115",
+      "source_location": null,
       "weight": 1.0,
       "source": "server_services_db_analytics_getanalyticsdata",
-      "target": "server_services_db_analytics_mergetimequery",
-      "confidence_score": 1.0
+      "target": "server_services_db_schema_schema"
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "references",
       "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "server/services/db/analytics.ts",
-      "source_location": "L73",
-      "weight": 1.0,
-      "source": "server_services_db_analytics_mergetimequery",
-      "target": "server_services_db_client_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L81",
-      "weight": 1.0,
-      "source": "server_services_db_analytics_draftcountquery",
-      "target": "server_services_db_client_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L116",
+      "source_location": null,
       "weight": 1.0,
       "source": "server_services_db_analytics_getanalyticsdata",
-      "target": "server_services_db_analytics_draftcountquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L117",
-      "weight": 1.0,
-      "source": "server_services_db_analytics_getanalyticsdata",
-      "target": "server_services_db_analytics_reviewdecisionquery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L88",
-      "weight": 1.0,
-      "source": "server_services_db_analytics_reviewdecisionquery",
-      "target": "server_services_db_client_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L95",
-      "weight": 1.0,
-      "source": "server_services_db_analytics_codechurnquery",
-      "target": "server_services_db_client_db",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "server/services/db/analytics.ts",
-      "source_location": "L118",
-      "weight": 1.0,
-      "source": "server_services_db_analytics_getanalyticsdata",
-      "target": "server_services_db_analytics_codechurnquery",
-      "confidence_score": 1.0
+      "target": "shared_types_types"
     },
     {
       "relation": "contains",
@@ -17263,6 +16174,26 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "server/services/ghAuth.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_services_ghauth_startghlogin",
+      "target": "concept_device_oauth"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "server/services/ghAuth.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_services_ghauth_startghlogin",
+      "target": "server_services_github_gha_gh"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/services/github.ts",
@@ -17597,12 +16528,12 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
+      "relation": "references",
       "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L224",
+      "source_location": null,
       "weight": 1.0,
       "source": "server_services_review_runner_runreview",
       "target": "server_services_review_prompt_buildreviewuserprompt"
@@ -17733,22 +16664,22 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L266",
+      "source_location": null,
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_services_review_runner_runreview",
-      "target": "server_services_review_runner_lastassistanttext",
-      "confidence_score": 1.0
+      "target": "server_services_review_runner_lastassistanttext"
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L85",
+      "source_location": null,
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_services_review_runner_extractjson",
-      "target": "server_services_review_runner_cleantext",
-      "confidence_score": 1.0
+      "target": "server_services_review_runner_cleantext"
     },
     {
       "relation": "calls",
@@ -17762,15 +16693,25 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "server/services/review/runner.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_services_review_runner_istransienterror",
+      "target": "concept_transient_retry"
+    },
+    {
+      "relation": "references",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L248",
+      "source_location": null,
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "server_services_review_runner_runreview",
-      "target": "server_services_review_runner_istransienterror",
-      "confidence_score": 1.0
+      "target": "server_services_review_runner_istransienterror"
     },
     {
       "relation": "calls",
@@ -17784,26 +16725,106 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L142",
+      "source_location": null,
       "weight": 1.0,
-      "source": "server_services_review_runner_parsereviewresult",
-      "target": "server_services_review_runner_extractjson",
-      "confidence_score": 1.0
+      "source": "server_services_review_runner_extractjson",
+      "target": "concept_json_autorepair"
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/services/review/runner.ts",
-      "source_location": "L269",
+      "source_location": null,
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_services_review_runner_parsereviewresult",
+      "target": "server_services_review_runner_extractjson"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "server/services/review/runner.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_services_review_runner_runreview",
+      "target": "server_services_review_runner_parsereviewresult"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "server/services/review/runner.ts",
+      "source_location": null,
       "weight": 1.0,
       "source": "server_services_review_runner_runreview",
-      "target": "server_services_review_runner_parsereviewresult",
-      "confidence_score": 1.0
+      "target": "concept_appowned_config"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "server/services/review/runner.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_services_review_runner_runreview",
+      "target": "concept_line_clamping"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/services/review/runner.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_services_review_runner_runreview",
+      "target": "concept_pi_agent"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/services/review/runner.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_services_review_runner_runreview",
+      "target": "db_modelconfig_getmodelconfig"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/services/review/runner.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_services_review_runner_runreview",
+      "target": "model_configpaths_configpaths"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/services/review/runner.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_services_review_runner_runreview",
+      "target": "server_services_review_prompt_reviewsystemprompt"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/services/review/runner.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_services_review_runner_runreview",
+      "target": "shared_types_types"
     },
     {
       "relation": "contains",
@@ -17891,21 +16912,31 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "shared/diff-parser.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "shared_diff_parser_parsediff",
+      "target": "shared_types_types"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "shared/diff-parser.ts",
-      "source_location": "L81",
+      "source_location": null,
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "shared_diff_parser_clamptohunkline",
-      "target": "shared_diff_parser_hunklineranges",
-      "confidence_score": 1.0
+      "target": "shared_diff_parser_hunklineranges"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "shared/types.ts",
-      "source_location": "L138",
+      "source_location": "L127",
       "weight": 1.0,
       "source": "shared_types",
       "target": "shared_types_analyticsdata",
@@ -17919,16 +16950,6 @@
       "weight": 1.0,
       "source": "shared_types",
       "target": "shared_types_authorbreakdown",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "shared/types.ts",
-      "source_location": "L127",
-      "weight": 1.0,
-      "source": "shared_types",
-      "target": "shared_types_churnpoint",
       "confidence_score": 1.0
     },
     {
@@ -18055,16 +17076,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "shared/types.ts",
-      "source_location": "L133",
-      "weight": 1.0,
-      "source": "shared_types",
-      "target": "shared_types_reviewdecisioncount",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "shared/types.ts",
       "source_location": "L76",
       "weight": 1.0,
       "source": "shared_types",
@@ -18122,214 +17133,114 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L2",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "server/services/review/prompt.ts",
+      "source_location": null,
       "weight": 1.0,
-      "source": "agents",
-      "target": "agents_this_is_not_the_next_js_you_know",
-      "confidence_score": 1.0
+      "source": "server_services_review_prompt_reviewsystemprompt",
+      "target": "concept_per_file_review"
     },
     {
-      "relation": "contains",
+      "relation": "references",
       "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/services/db/schema.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_services_db_schema_schema",
+      "target": "shared_types_types"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/services/model-config-paths.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "model_configpaths_configpaths",
+      "target": "server_config_models_modelsjson"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "server/services/db/model-config.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "db_modelconfig_getmodelconfig",
+      "target": "server_config_models_modelsjson"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/services/db/model-config.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "db_modelconfig_getmodelconfig",
+      "target": "server_services_db_schema_schema"
+    },
+    {
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "PLAN.md",
-      "source_location": "L1",
+      "source_location": null,
       "weight": 1.0,
-      "source": "plan",
-      "target": "plan_migrasi_next_js_nuxt_js_vue_3_postgresql_docker",
-      "confidence_score": 1.0
+      "source": "plan_migration",
+      "target": "server_services_db_schema_schema"
     },
     {
-      "relation": "contains",
+      "relation": "cites",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_readme",
+      "target": "server_services_db_schema_schema"
+    },
+    {
+      "relation": "references",
       "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "nuxt.config.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "nuxt_config_nuxtconfig",
+      "target": "concept_pi_agent"
+    },
+    {
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_readme",
+      "target": "concept_pi_agent"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "server/config/models.json",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_config_models_modelsjson",
+      "target": "concept_pi_agent"
+    },
+    {
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "PLAN.md",
-      "source_location": "L18",
+      "source_location": null,
       "weight": 1.0,
-      "source": "plan_migrasi_next_js_nuxt_js_vue_3_postgresql_docker",
-      "target": "plan_approach",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "plan_migrasi_next_js_nuxt_js_vue_3_postgresql_docker",
-      "target": "plan_context",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L47",
-      "weight": 1.0,
-      "source": "plan_migrasi_next_js_nuxt_js_vue_3_postgresql_docker",
-      "target": "plan_database_sqlite_postgresql",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L89",
-      "weight": 1.0,
-      "source": "plan_migrasi_next_js_nuxt_js_vue_3_postgresql_docker",
-      "target": "plan_files_to_modify",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L118",
-      "weight": 1.0,
-      "source": "plan_migrasi_next_js_nuxt_js_vue_3_postgresql_docker",
-      "target": "plan_reuse",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L155",
-      "weight": 1.0,
-      "source": "plan_migrasi_next_js_nuxt_js_vue_3_postgresql_docker",
-      "target": "plan_risiko_catatan",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L126",
-      "weight": 1.0,
-      "source": "plan_migrasi_next_js_nuxt_js_vue_3_postgresql_docker",
-      "target": "plan_steps",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L165",
-      "weight": 1.0,
-      "source": "plan_migrasi_next_js_nuxt_js_vue_3_postgresql_docker",
-      "target": "plan_struktur_komponen_clean_code_wajib",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "PLAN.md",
-      "source_location": "L142",
-      "weight": 1.0,
-      "source": "plan_migrasi_next_js_nuxt_js_vue_3_postgresql_docker",
-      "target": "plan_verification",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "readme",
-      "target": "readme_review_monitor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "readme_review_monitor",
-      "target": "readme_fitur_utama",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "readme_review_monitor",
-      "target": "readme_menjalankan_dengan_docker_compose",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "readme_review_monitor",
-      "target": "readme_menjalankan_secara_lokal",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "readme_review_monitor",
-      "target": "readme_tech_stack",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L80",
-      "weight": 1.0,
-      "source": "readme_review_monitor",
-      "target": "readme_testing_type_checking",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "readme_menjalankan_secara_lokal",
-      "target": "readme_1_prerequisites",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L46",
-      "weight": 1.0,
-      "source": "readme_menjalankan_secara_lokal",
-      "target": "readme_2_konfigurasi_environment_env",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L54",
-      "weight": 1.0,
-      "source": "readme_menjalankan_secara_lokal",
-      "target": "readme_3_migrasi_database",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L60",
-      "weight": 1.0,
-      "source": "readme_menjalankan_secara_lokal",
-      "target": "readme_4_jalankan_dev_server",
-      "confidence_score": 1.0
+      "source": "plan_migration",
+      "target": "nuxt_config_nuxtconfig"
     }
   ],
   "hyperedges": [
@@ -18377,5 +17288,5 @@
       "source_file": null
     }
   ],
-  "built_at_commit": "223b9e2e994195835ca96591e0d007fa2897ae60"
+  "built_at_commit": "777b232a2d44edadea6f63de6aa9a0f50713f3f9"
 }

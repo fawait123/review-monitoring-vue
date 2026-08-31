@@ -1,18 +1,12 @@
-# Graph Report - review-monitoring  (2026-08-31)
+# Graph Report - .  (2026-08-31)
 
 ## Corpus Check
-- 211 files · ~30,812 words
-- Verdict: corpus is large enough that graph structure adds value.
+- Corpus is ~29,368 words - fits in a single context window. You may not need a graph.
 
 ## Summary
-- 749 nodes · 1024 edges · 77 communities (51 shown, 26 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.8)
+- 692 nodes · 970 edges · 53 communities (46 shown, 7 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 18 edges (avg confidence: 0.9)
 - Token cost: 0 input · 0 output
-
-## Graph Freshness
-- Built from commit: `223b9e2e`
-- Run `git rev-parse HEAD` and compare to check if the graph is stale.
-- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_Server API & DB Layer|Server API & DB Layer]]
@@ -65,56 +59,32 @@
 - [[_COMMUNITY_Review Decision Badge|Review Decision Badge]]
 - [[_COMMUNITY_Dropdown Separator|Dropdown Separator]]
 - [[_COMMUNITY_TS Project Config|TS Project Config]]
-- [[_COMMUNITY_Community 53|Community 53]]
-- [[_COMMUNITY_Community 54|Community 54]]
-- [[_COMMUNITY_Community 55|Community 55]]
-- [[_COMMUNITY_Community 56|Community 56]]
-- [[_COMMUNITY_Community 57|Community 57]]
-- [[_COMMUNITY_Community 59|Community 59]]
-- [[_COMMUNITY_Community 60|Community 60]]
-- [[_COMMUNITY_Community 61|Community 61]]
-- [[_COMMUNITY_Community 62|Community 62]]
-- [[_COMMUNITY_Community 63|Community 63]]
-- [[_COMMUNITY_Community 64|Community 64]]
-- [[_COMMUNITY_Community 65|Community 65]]
-- [[_COMMUNITY_Community 66|Community 66]]
-- [[_COMMUNITY_Community 67|Community 67]]
-- [[_COMMUNITY_Community 68|Community 68]]
-- [[_COMMUNITY_Community 69|Community 69]]
-- [[_COMMUNITY_Community 70|Community 70]]
-- [[_COMMUNITY_Community 71|Community 71]]
-- [[_COMMUNITY_Community 72|Community 72]]
-- [[_COMMUNITY_Community 73|Community 73]]
-- [[_COMMUNITY_Community 74|Community 74]]
-- [[_COMMUNITY_Community 75|Community 75]]
-- [[_COMMUNITY_Community 76|Community 76]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `db()` - 41 edges
-2. `runReview()` - 14 edges
-3. `getClickhouseAnalyticsData()` - 13 edges
-4. `ch()` - 13 edges
-5. `getAnalyticsData()` - 13 edges
-6. `gh()` - 10 edges
-7. `Migrasi Next.js → Nuxt.js (Vue 3) + PostgreSQL + Docker` - 10 edges
-8. `getReview()` - 9 edges
-9. `scripts` - 8 edges
-10. `tailwind` - 6 edges
+1. `db()` - 37 edges
+2. `runReview (Pi agent review runner)` - 22 edges
+3. `getAnalyticsData (dashboard analytics queries)` - 11 edges
+4. `gh()` - 10 edges
+5. `reviews/run.post SSE handler (per-file streaming review)` - 9 edges
+6. `getReview()` - 9 edges
+7. `scripts` - 8 edges
+8. `tailwind` - 6 edges
+9. `aliases` - 6 edges
+10. `start()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `start()` --calls--> `parseDiff()`  [INFERRED]
+- `Review Monitor README (features, setup)` --cites--> `Drizzle pg schema (repos, prs, reviews, comments, model_config)`  [INFERRED]
+  README.md → server/services/db/schema.ts
+- `Next.js → Nuxt + PostgreSQL + Drizzle migration plan` --cites--> `Drizzle pg schema (repos, prs, reviews, comments, model_config)`  [EXTRACTED]
+  PLAN.md → server/services/db/schema.ts
+- `start()` --calls--> `parseDiff (unified diff parser)`  [INFERRED]
   server/api/reviews/run.post.ts → shared/diff-parser.ts
-- `deleteReview()` --calls--> `db()`  [EXTRACTED]
-  server/services/db/reviews.ts → server/services/db/client.ts
-- `runReview()` --calls--> `getModelConfig()`  [INFERRED]
-  server/services/review/runner.ts → server/services/db/model-config.ts
-- `runReview()` --calls--> `buildReviewUserPrompt()`  [INFERRED]
-  server/services/review/runner.ts → server/services/review/prompt.ts
-- `start()` --calls--> `runReview()`  [EXTRACTED]
-  server/api/reviews/run.post.ts → server/services/review/runner.ts
+- `Next.js → Nuxt + PostgreSQL + Drizzle migration plan` --cites--> `nuxt.config.ts (ui auto-import, color-mode, nitro externals)`  [EXTRACTED]
+  PLAN.md → nuxt.config.ts
+- `reviews/run.post SSE handler (per-file streaming review)` --references--> `clampToHunkLine (clamp comment line to diff)`  [EXTRACTED]
+  server/api/reviews/run.post.ts → shared/diff-parser.ts
 
 ## Import Cycles
-- 1-file cycle: `server/services/clickhouse/client.ts -> server/services/clickhouse/client.ts`
 - 3-file cycle: `app/components/ui/sidebar/SidebarMenuButton.vue -> app/components/ui/sidebar/SidebarMenuButtonChild.vue -> app/components/ui/sidebar/index.ts -> app/components/ui/sidebar/SidebarMenuButton.vue`
 
 ## Hyperedges (group relationships)
@@ -122,23 +92,23 @@
 - **Model Configuration Flow** — server_config_models_modelsjson, model_configpaths_configpaths, db_modelconfig_getmodelconfig, server_services_review_runner_runreview [INFERRED 0.85]
 - **GitHub Integration** — server_services_github_gha_gh, server_services_ghauth_getghstatus, server_services_ghauth_startghlogin, concept_device_oauth [INFERRED 0.85]
 
-## Communities (77 total, 26 thin omitted)
+## Communities (53 total, 7 thin omitted)
 
 ### Community 0 - "Server API & DB Layer"
-Cohesion: 0.09
-Nodes (33): start(), addComment(), CommentRow, createReview(), deleteComment(), deleteReview(), freshReview(), getComment() (+25 more)
+Cohesion: 0.06
+Nodes (63): start(), getAnalyticsData (dashboard analytics queries), perAuthorQuery(), perRepoQuery(), repoCountQuery(), reviewStatsQuery(), stateRatioQuery(), totalQuery() (+55 more)
 
 ### Community 1 - "AI Review Pipeline"
-Cohesion: 0.18
-Nodes (14): configPaths(), findConfigDir(), buildReviewUserPrompt(), AgentMessage, cleanText(), delay(), extractJson(), isTransientError() (+6 more)
+Cohesion: 0.07
+Nodes (38): useReview composable (SSE client, review state), App-owned pi config (server/config) not ~/.pi/agent, AI JSON output auto-repair (truncation, trailing comma), Line clamping to prevent wrong GitHub comment lines, Per-file review mode (one AI review per diff file), Pi Coding Agent SDK (@earendil-works/pi-coding-agent), Server-Sent Events live review streaming, Transient API error retry (rate limit, 403, 429) (+30 more)
 
 ### Community 2 - "Analytics Charts"
-Cohesion: 0.09
-Nodes (22): aliases, components, composables, lib, ui, utils, font, iconLibrary (+14 more)
+Cohesion: 0.05
+Nodes (38): option, props, ready, option, props, ready, option, props (+30 more)
 
 ### Community 3 - "Dependencies"
 Cohesion: 0.05
-Nodes (40): dependencies, class-variance-authority, @clickhouse/client, clsx, drizzle-orm, @earendil-works/pi-coding-agent, @lucide/vue, nuxt (+32 more)
+Nodes (39): dependencies, class-variance-authority, clsx, drizzle-orm, @earendil-works/pi-coding-agent, @lucide/vue, nuxt, @nuxtjs/color-mode (+31 more)
 
 ### Community 4 - "Button & Dialog UI"
 Cohesion: 0.06
@@ -174,7 +144,7 @@ Nodes (12): TabsListVariants, delegatedProps, emits, forwarded, props, delegated
 
 ### Community 12 - "Dashboard Page"
 Cohesion: 0.12
-Nodes (16): AnalyticsData, AuthorBreakdown, ChurnPoint, CollectedPR, CommentStatus, PR, PRState, Repo (+8 more)
+Nodes (15): { data, error }, AnalyticsData, AuthorBreakdown, CollectedPR, CommentStatus, PR, PRState, Repo (+7 more)
 
 ### Community 13 - "Card UI"
 Cohesion: 0.13
@@ -185,8 +155,8 @@ Cohesion: 0.14
 Nodes (9): emits, forwarded, props, delegatedProps, emits, forwarded, props, props (+1 more)
 
 ### Community 15 - "GitHub Auth (Device OAuth)"
-Cohesion: 0.33
-Nodes (5): cancelGhLogin(), exec, getGhStatus(), GhStatus, startGhLogin()
+Cohesion: 0.26
+Nodes (7): GitHub Device OAuth flow via gh CLI, cancelGhLogin(), exec, getGhStatus (gh auth status), GhStatus, startGhLogin (device OAuth flow), gh CLI GitHub integration (execFile)
 
 ### Community 16 - "Sidebar Provider"
 Cohesion: 0.24
@@ -197,8 +167,8 @@ Cohesion: 0.20
 Nodes (9): commentsByReview, { data, pending, error, refresh }, files, number, owner, PrDetailData, repo, reviews (+1 more)
 
 ### Community 18 - "PR Table & Badges"
-Cohesion: 0.18
-Nodes (7): map, props, emit, handleStateChange(), props, map, props
+Cohesion: 0.25
+Nodes (5): map, props, emit, handleStateChange(), props
 
 ### Community 19 - "Collapsible UI"
 Cohesion: 0.22
@@ -241,11 +211,11 @@ Nodes (4): props, width, props, SkeletonProps
 
 ### Community 26 - "Diff Parser & Clamp"
 Cohesion: 0.33
-Nodes (6): clampToHunkLine(), hunkLineRanges(), DiffFile, DiffHunk, DiffLine, DiffLineKind
+Nodes (6): clampToHunkLine (clamp comment line to diff), hunkLineRanges (diff new-line numbers), DiffFile, DiffHunk, DiffLine, DiffLineKind
 
 ### Community 27 - "Checkbox UI"
-Cohesion: 0.18
-Nodes (7): delegatedProps, props, BadgeVariants, delegatedProps, emits, forwarded, props
+Cohesion: 0.33
+Nodes (4): delegatedProps, emits, forwarded, props
 
 ### Community 28 - "Separator UI"
 Cohesion: 0.33
@@ -260,8 +230,8 @@ Cohesion: 0.33
 Nodes (3): eslintConfig, AppConfig, DEFAULTS
 
 ### Community 32 - "Badge UI"
-Cohesion: 0.08
-Nodes (40): THINKING_LEVELS, codeChurnQuery(), draftCountQuery(), getAnalyticsData(), mergeTimeQuery(), perAuthorQuery(), perRepoQuery(), repoCountQuery() (+32 more)
+Cohesion: 0.50
+Nodes (3): delegatedProps, props, BadgeVariants
 
 ### Community 33 - "Dropdown Checkbox Item"
 Cohesion: 0.40
@@ -307,24 +277,8 @@ Nodes (3): emits, forwarded, props
 Cohesion: 0.50
 Nodes (3): delegatedProps, forwardedProps, props
 
-### Community 47 - "Review Decision Badge"
-Cohesion: 0.07
-Nodes (23): option, props, ready, option, props, ready, DECISION_COLORS, option (+15 more)
-
-### Community 53 - "Community 53"
-Cohesion: 0.33
-Nodes (13): codeChurnQuery(), draftCountQuery(), getClickhouseAnalyticsData(), mergeTimeQuery(), perAuthorQuery(), perRepoQuery(), repoCountQuery(), reviewDecisionQuery() (+5 more)
-
-### Community 54 - "Community 54"
-Cohesion: 0.18
-Nodes (10): Approach, Context, Database: SQLite → PostgreSQL, Files to modify, Migrasi Next.js → Nuxt.js (Vue 3) + PostgreSQL + Docker, Reuse, Risiko / Catatan, Steps (+2 more)
-
-### Community 55 - "Community 55"
-Cohesion: 0.18
-Nodes (10): 1. Prerequisites, 2. Konfigurasi Environment (`.env`), 3. Migrasi Database, 4. Jalankan Dev Server, Fitur Utama, Menjalankan dengan Docker Compose, Menjalankan Secara Lokal, Review Monitor (+2 more)
-
 ## Knowledge Gaps
-- **400 isolated node(s):** `{
+- **363 isolated node(s):** `{
   status,
   dialogOpen,
   busy,
@@ -333,21 +287,21 @@ Nodes (10): 1. Prerequisites, 2. Konfigurasi Environment (`.env`), 3. Migrasi Da
   connect,
   cancelConnect,
   disconnect,
-}`, `props`, `kpis`, `props`, `ready` (+395 more)
+}`, `props`, `kpis`, `props`, `ready` (+358 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **26 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `dependencies` connect `Dependencies` to `Review Decision Badge`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
-- **Why does `@clickhouse/client` connect `Dependencies` to `Community 53`?**
-  _High betweenness centrality (0.076) - this node is a cross-community bridge._
-- **Why does `echarts` connect `Review Decision Badge` to `Dependencies`?**
-  _High betweenness centrality (0.050) - this node is a cross-community bridge._
-- **Are the 3 inferred relationships involving `runReview()` (e.g. with `getModelConfig()` and `configPaths()`) actually correct?**
-  _`runReview()` has 3 INFERRED edges - model-reasoned connections that need verification._
+- **Why does `runReview (Pi agent review runner)` connect `AI Review Pipeline` to `Server API & DB Layer`?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
+- **Why does `reviews/run.post SSE handler (per-file streaming review)` connect `AI Review Pipeline` to `Server API & DB Layer`, `Diff Parser & Clamp`, `GitHub Auth (Device OAuth)`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **Why does `gh CLI GitHub integration (execFile)` connect `GitHub Auth (Device OAuth)` to `AI Review Pipeline`?**
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
+- **Are the 4 inferred relationships involving `runReview (Pi agent review runner)` (e.g. with `App-owned pi config (server/config) not ~/.pi/agent` and `Line clamping to prevent wrong GitHub comment lines`) actually correct?**
+  _`runReview (Pi agent review runner)` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `{
   status,
   dialogOpen,
@@ -358,8 +312,8 @@ _Questions this graph is uniquely positioned to answer:_
   cancelConnect,
   disconnect,
 }`, `props`, `kpis` to the rest of the system?**
-  _400 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _363 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Server API & DB Layer` be split into smaller, more focused modules?**
-  _Cohesion score 0.08985507246376812 - nodes in this community are weakly interconnected._
-- **Should `Analytics Charts` be split into smaller, more focused modules?**
-  _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.057181942544459644 - nodes in this community are weakly interconnected._
+- **Should `AI Review Pipeline` be split into smaller, more focused modules?**
+  _Cohesion score 0.06767676767676768 - nodes in this community are weakly interconnected._
