@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import AnalyticsKpis from "~/components/analytics/analytics-kpis.vue";
 import AuthorChart from "~/components/analytics/author-chart.vue";
+import ChurnChart from "~/components/analytics/churn-chart.vue";
+import DecisionChart from "~/components/analytics/decision-chart.vue";
 import RatioChart from "~/components/analytics/ratio-chart.vue";
 import RepoChart from "~/components/analytics/repo-chart.vue";
 import TrendChart from "~/components/analytics/trend-chart.vue";
@@ -71,6 +73,31 @@ const { data, error } = useAsyncData("analytics", () =>
           <CardContent>
             <ClientOnly>
               <TrendChart :data="data.trend" />
+            </ClientOnly>
+          </CardContent>
+        </Card>
+      </div>
+
+      <!-- 4 Additional Analytics Charts -->
+      <div class="grid md:grid-cols-2 gap-4">
+        <Card>
+          <CardHeader>
+            <CardTitle class="text-sm">Code Churn per Repo (Additions / Deletions)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ClientOnly>
+              <ChurnChart :data="data.codeChurn" />
+            </ClientOnly>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle class="text-sm">Review Decision Breakdown</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ClientOnly>
+              <DecisionChart :data="data.reviewDecisions" />
             </ClientOnly>
           </CardContent>
         </Card>

@@ -12,6 +12,7 @@
     "test": "tsx scripts/diff-parser.test.ts"
   },
   "dependencies": {
+    "@clickhouse/client": "^1.23.1",
     "@earendil-works/pi-coding-agent": "^0.83.0",
     "@lucide/vue": "^1.28.0",
     "@nuxtjs/color-mode": "^4.0.1",

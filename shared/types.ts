@@ -124,6 +124,17 @@ export interface TrendPoint {
   CLOSED: number;
 }
 
+export interface ChurnPoint {
+  repo: string;
+  additions: number;
+  deletions: number;
+}
+
+export interface ReviewDecisionCount {
+  decision: string;
+  count: number;
+}
+
 export interface AnalyticsData {
   total: number;
   repoCount: number;
@@ -133,4 +144,12 @@ export interface AnalyticsData {
   perRepo: RepoBreakdown[];
   perAuthor: AuthorBreakdown[];
   trend: TrendPoint[];
+  /** Rata-rata hari dari created_at ke merged_at (merged PRs saja) */
+  avgMergeTimeDays: number | null;
+  /** Jumlah PR yang merupakan draft */
+  draftCount: number;
+  /** Breakdown review_decision (APPROVED, CHANGES_REQUESTED, REVIEW_REQUIRED, null) */
+  reviewDecisions: ReviewDecisionCount[];
+  /** Total additions/deletions per repo (top 15) */
+  codeChurn: ChurnPoint[];
 }

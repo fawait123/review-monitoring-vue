@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { db } from "./client";
-import type { AnalyticsData, AuthorBreakdown, RepoBreakdown, StateCount, TrendPoint } from "~~/shared/types";
+import type { AnalyticsData, AuthorBreakdown, ChurnPoint, RepoBreakdown, ReviewDecisionCount, StateCount, TrendPoint } from "~~/shared/types";
 
 async function stateRatioQuery() {
   return (await db().execute(sql`
@@ -69,8 +69,42 @@ async function trendQuery() {
   `)).rows as unknown as TrendPoint[];
 }
 
+async function mergeTimeQuery(): Promise<number | null> {
+  const rows = (await db().execute(sql`
+    SELECT AVG(EXTRACT(EPOCH FROM (merged_at - created_at)) / 86400.0)::float8 AS avg_days
+    FROM prs WHERE merged_at IS NOT NULL
+  `)).rows as unknown as { avg_days: number | null }[];
+  return rows[0]?.avg_days ?? null;
+}
+
+async function draftCountQuery(): Promise<number> {
+  const rows = (await db().execute(sql`
+    SELECT count(*)::int AS c FROM prs WHERE is_draft = true
+  `)).rows as unknown as { c: number }[];
+  return rows[0]?.c ?? 0;
+}
+
+async function reviewDecisionQuery(): Promise<ReviewDecisionCount[]> {
+  return (await db().execute(sql`
+    SELECT COALESCE(review_decision, '(none)') AS decision, count(*)::int AS count
+    FROM prs GROUP BY decision ORDER BY count DESC
+  `)).rows as unknown as ReviewDecisionCount[];
+}
+
+async function codeChurnQuery(): Promise<ChurnPoint[]> {
+  return (await db().execute(sql`
+    SELECT r.name_with_owner AS repo,
+           SUM(p.additions)::int AS additions,
+           SUM(p.deletions)::int AS deletions
+    FROM prs p JOIN repos r ON r.id = p.repo_id
+    GROUP BY r.name_with_owner
+    ORDER BY (SUM(p.additions) + SUM(p.deletions)) DESC
+    LIMIT 15
+  `)).rows as unknown as ChurnPoint[];
+}
+
 export async function getAnalyticsData(): Promise<AnalyticsData> {
-  const [stateRatio, total, repoCount, reviewStats, perRepo, perAuthor, trend] = await Promise.all([
+  const [stateRatio, total, repoCount, reviewStats, perRepo, perAuthor, trend, mergeTime, draftCount, reviewDecisions, codeChurn] = await Promise.all([
     stateRatioQuery(),
     totalQuery(),
     repoCountQuery(),
@@ -78,6 +112,10 @@ export async function getAnalyticsData(): Promise<AnalyticsData> {
     perRepoQuery(),
     perAuthorQuery(),
     trendQuery(),
+    mergeTimeQuery(),
+    draftCountQuery(),
+    reviewDecisionQuery(),
+    codeChurnQuery(),
   ]);
   return {
     total,
@@ -88,5 +126,9 @@ export async function getAnalyticsData(): Promise<AnalyticsData> {
     perRepo,
     perAuthor,
     trend,
+    avgMergeTimeDays: mergeTime,
+    draftCount,
+    reviewDecisions,
+    codeChurn,
   };
 }
