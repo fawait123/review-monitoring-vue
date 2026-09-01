@@ -43,3 +43,7 @@ data/
 .plannotator
 server/config/models-store.json
 scripts
+
+# generated artifacts
+graphify-out/
+PLAN.md

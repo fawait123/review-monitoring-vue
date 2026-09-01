@@ -1,5 +1,5 @@
-import { countPRs, listPRs } from "../services/db/prs";
-import { listRepos } from "../services/db/repos";
+import { countPRs, listPRs } from "#server/services/db/prs";
+import { listRepos } from "#server/services/db/repos";
 
 export default defineEventHandler(async (event) => {
   const q = getQuery(event);

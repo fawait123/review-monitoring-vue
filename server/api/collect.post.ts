@@ -1,6 +1,6 @@
-import { searchMyOpenPRs } from "../services/github";
-import { upsertRepo } from "../services/db/repos";
-import { upsertPR } from "../services/db/prs";
+import { searchMyOpenPRs } from "#server/services/github";
+import { upsertRepo } from "#server/services/db/repos";
+import { upsertPR } from "#server/services/db/prs";
 
 // ponytail: 1-2 call `gh search prs --author @me --state open` menggantikan 200 call per-repo.
 export default defineEventHandler(async (event) => {

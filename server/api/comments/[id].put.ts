@@ -1,4 +1,4 @@
-import { getComment, getReview, updateComment } from "../../services/db/reviews";
+import { getComment, getReview, updateComment } from "#server/services/db/reviews";
 
 export default defineEventHandler(async (event) => {
   const id = Number(getRouterParam(event, "id"));

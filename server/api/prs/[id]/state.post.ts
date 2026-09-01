@@ -1,4 +1,4 @@
-import { getPR, updatePRState } from "../../../services/db/prs";
+import { getPR, updatePRState } from "#server/services/db/prs";
 import type { PRState } from "~~/shared/types";
 
 // Update state PR manual — hanya di database, tanpa sync GitHub.

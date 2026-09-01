@@ -1,3 +1,3 @@
-import { getGhStatus } from "../../services/ghAuth";
+import { getGhStatus } from "#server/services/ghAuth";
 
 export default defineEventHandler(() => getGhStatus());

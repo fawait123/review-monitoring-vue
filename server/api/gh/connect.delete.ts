@@ -1,4 +1,4 @@
-import { cancelGhLogin } from "../../services/ghAuth";
+import { cancelGhLogin } from "#server/services/ghAuth";
 
 export default defineEventHandler(() => {
   cancelGhLogin();

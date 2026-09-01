@@ -1,6 +1,6 @@
 import { resolve } from "node:path";
 import { migrate } from "drizzle-orm/node-postgres/migrator";
-import { db } from "../services/db/client";
+import { db } from "#server/services/db/client";
 
 // Jalankan migration saat boot — idempotent, aman di dev + docker.
 export default defineNitroPlugin(async () => {

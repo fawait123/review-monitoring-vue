@@ -4,9 +4,9 @@ import {
   markCommentSubmitted,
   markReviewSubmitted,
   updateComment,
-} from "../../../services/db/reviews";
-import { getPR } from "../../../services/db/prs";
-import { getPRDetail, getPRDiff, submitReview } from "../../../services/github";
+} from "#server/services/db/reviews";
+import { getPR } from "#server/services/db/prs";
+import { getPRDetail, getPRDiff, submitReview } from "#server/services/github";
 import { parseDiff, clampToHunkLine } from "~~/shared/diff-parser";
 
 export default defineEventHandler(async (event) => {

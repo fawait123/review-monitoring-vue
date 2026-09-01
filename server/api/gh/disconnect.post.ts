@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { getGhStatus } from "../../services/ghAuth";
+import { getGhStatus } from "#server/services/ghAuth";
 
 export default defineEventHandler(async (event) => {
   const status = await getGhStatus();

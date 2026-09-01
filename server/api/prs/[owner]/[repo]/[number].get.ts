@@ -1,6 +1,6 @@
-import { getPRByKey } from "../../../../services/db/prs";
-import { listComments, listReviews } from "../../../../services/db/reviews";
-import { getPRDetail, getPRDiff, getUserLogin } from "../../../../services/github";
+import { getPRByKey } from "#server/services/db/prs";
+import { listComments, listReviews } from "#server/services/db/reviews";
+import { getPRDetail, getPRDiff, getUserLogin } from "#server/services/github";
 import type { ReviewComment } from "~~/shared/types";
 
 // Detail PR + semua review + komentar (opsional diff + branch refs utk halaman detail).

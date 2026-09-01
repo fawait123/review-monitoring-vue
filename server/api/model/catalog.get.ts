@@ -1,5 +1,5 @@
 import { ModelRuntime } from "@earendil-works/pi-coding-agent";
-import { configPaths } from "../../services/model-config-paths";
+import { configPaths } from "#server/services/model-config-paths";
 
 export default defineEventHandler(async () => {
   const { modelsPath, authPath } = configPaths();

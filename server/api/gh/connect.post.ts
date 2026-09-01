@@ -1,3 +1,3 @@
-import { startGhLogin } from "../../services/ghAuth";
+import { startGhLogin } from "#server/services/ghAuth";
 
 export default defineEventHandler(() => startGhLogin());

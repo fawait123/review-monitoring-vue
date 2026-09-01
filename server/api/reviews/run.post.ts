@@ -1,9 +1,9 @@
 import { setResponseHeaders, setResponseStatus, readBody } from "h3";
-import { getPRDiff, getPRDetail, getPRFull } from "../../services/github";
-import { upsertRepo } from "../../services/db/repos";
-import { getPRByKey, upsertPR } from "../../services/db/prs";
-import { createReview, freshReview } from "../../services/db/reviews";
-import { runReview } from "../../services/review/runner";
+import { getPRDiff, getPRDetail, getPRFull } from "#server/services/github";
+import { upsertRepo } from "#server/services/db/repos";
+import { getPRByKey, upsertPR } from "#server/services/db/prs";
+import { createReview, freshReview } from "#server/services/db/reviews";
+import { runReview } from "#server/services/review/runner";
 import { parseDiff, clampToHunkLine } from "~~/shared/diff-parser";
 import type { DiffFile, ReviewResult } from "~~/shared/types";
 

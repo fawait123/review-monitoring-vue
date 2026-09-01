@@ -1,4 +1,4 @@
-import { setModelConfig } from "../../services/db/model-config";
+import { setModelConfig } from "#server/services/db/model-config";
 
 const THINKING_LEVELS = ["off", "minimal", "low", "medium", "high", "xhigh", "max"];
 
