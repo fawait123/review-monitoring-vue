@@ -15,6 +15,13 @@
       "when": 1786502076763,
       "tag": "0001_add_model_config",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1788226974103,
+      "tag": "0002_typical_skin",
+      "breakpoints": true
     }
   ]
 }

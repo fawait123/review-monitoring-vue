@@ -10,7 +10,7 @@ import {
   check,
 } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
-import type { PRState, ReviewStatus, CommentStatus } from "~~/shared/types";
+import type { PRState, ReviewStatus, CommentStatus, PrdStatus, PrdTaskStatus } from "~~/shared/types";
 
 export const repos = pgTable(
   "repos",
@@ -106,4 +106,42 @@ export const modelConfig = pgTable(
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [check("model_config_id_one", sql`${t.id} = 1`)],
+);
+
+export const prds = pgTable(
+  "prds",
+  {
+    id: serial("id").primaryKey(),
+    title: text("title").notNull(),
+    promptInput: text("prompt_input").notNull().default(""),
+    content: text("content").notNull().default(""),
+    status: text("status").notNull().default("draft").$type<PrdStatus>(),
+    repoNameWithOwner: text("repo_name_with_owner"),
+    ghPrNumber: integer("gh_pr_number"),
+    ghPrUrl: text("gh_pr_url"),
+    generatedBy: text("generated_by"),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [check("prds_status_check", sql`${t.status} IN ('draft','generated','pushed')`)],
+);
+
+export const prdTasks = pgTable(
+  "prd_tasks",
+  {
+    id: serial("id").primaryKey(),
+    prdId: integer("prd_id")
+      .notNull()
+      .references(() => prds.id, { onDelete: "cascade" }),
+    title: text("title").notNull(),
+    description: text("description").notNull().default(""),
+    acceptanceCriteria: text("acceptance_criteria").notNull().default(""),
+    status: text("status").notNull().default("todo").$type<PrdTaskStatus>(),
+    ghIssueNumber: integer("gh_issue_number"),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [
+    index("idx_prd_tasks_prd").on(t.prdId),
+    check("prd_tasks_status_check", sql`${t.status} IN ('todo','in_progress','done')`),
+  ],
 );

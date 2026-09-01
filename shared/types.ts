@@ -2,6 +2,46 @@ export type PRState = "OPEN" | "MERGED" | "CLOSED";
 export type ReviewStatus = "draft" | "submitted";
 export type CommentStatus = "draft" | "submitted";
 
+export type PrdStatus = "draft" | "generated" | "pushed";
+export type PrdTaskStatus = "todo" | "in_progress" | "done";
+
+export const PRD_STACK_FIELDS = ["frontend", "backend", "database", "server"] as const;
+export type PrdStackField = (typeof PRD_STACK_FIELDS)[number];
+/** Pilihan stack per kategori — nilai bebas, contoh: { frontend: "nuxtjs", database: "postgresql" } */
+export type PrdStackInput = Partial<Record<PrdStackField, string>>;
+
+export interface Prd {
+  id: number;
+  title: string;
+  promptInput: string;
+  content: string;
+  status: PrdStatus;
+  repoNameWithOwner: string | null;
+  ghPrNumber: number | null;
+  ghPrUrl: string | null;
+  createdAt: string;
+  updatedAt: string;
+  generatedBy: string | null;
+  taskCount: number;
+}
+
+export interface PrdTask {
+  id: number;
+  prdId: number;
+  title: string;
+  description: string;
+  acceptanceCriteria: string;
+  status: PrdTaskStatus;
+  ghIssueNumber: number | null;
+  createdAt: string;
+}
+
+export interface TaskDraft {
+  title: string;
+  description: string;
+  acceptanceCriteria: string;
+}
+
 export interface Repo {
   id: number;
   name_with_owner: string;
