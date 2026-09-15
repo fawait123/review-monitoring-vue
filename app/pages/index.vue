@@ -3,12 +3,14 @@ import AnalyticsKpis from "~/components/analytics/analytics-kpis.vue";
 import AuthorChart from "~/components/analytics/author-chart.vue";
 import ChurnChart from "~/components/analytics/churn-chart.vue";
 import DecisionChart from "~/components/analytics/decision-chart.vue";
+import CommentChart from "~/components/analytics/comment-chart.vue";
+import CommentAuthorChart from "~/components/analytics/comment-author-chart.vue";
 import RatioChart from "~/components/analytics/ratio-chart.vue";
 import RepoChart from "~/components/analytics/repo-chart.vue";
 import TrendChart from "~/components/analytics/trend-chart.vue";
 import type { AnalyticsData } from "~~/shared/types";
 
-const { data, error } = useAsyncData("analytics", () =>
+const { data, error, pending } = useAsyncData("analytics", () =>
   $fetch<AnalyticsData>("/api/analytics"),
 );
 </script>
@@ -26,6 +28,13 @@ const { data, error } = useAsyncData("analytics", () =>
       <h1 class="text-2xl font-bold text-destructive">Gagal memuat analytics</h1>
       <p class="text-muted-foreground">{{ error.message }}</p>
     </div>
+
+    <template v-else-if="pending">
+      <Skeleton class="h-28 w-full" />
+      <div class="grid md:grid-cols-2 gap-4 mt-6">
+        <Skeleton v-for="n in 8" :key="n" class="h-70 w-full" />
+      </div>
+    </template>
 
     <template v-else-if="data">
       <!-- 6 KPI Grid -->
@@ -93,7 +102,29 @@ const { data, error } = useAsyncData("analytics", () =>
 
         <Card>
           <CardHeader>
-            <CardTitle class="text-sm">Review Decision Breakdown</CardTitle>
+            <CardTitle class="text-sm">Komentar Review per Author (per Repo)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ClientOnly>
+              <CommentChart :data="data.commentsPerAuthor" />
+            </ClientOnly>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle class="text-sm">Komentar Review per Author (Total Komen, Repo & PR)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ClientOnly>
+              <CommentAuthorChart :data="data.commentsByAuthor" />
+            </ClientOnly>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle class="text-sm">PR Status Breakdown</CardTitle>
           </CardHeader>
           <CardContent>
             <ClientOnly>

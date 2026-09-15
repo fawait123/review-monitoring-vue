@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import { db } from "./client";
-import type { AnalyticsData, AuthorBreakdown, ChurnPoint, RepoBreakdown, ReviewDecisionCount, StateCount, TrendPoint } from "~~/shared/types";
+import type { AnalyticsData, AuthorBreakdown, AuthorCommentBreakdown, ChurnPoint, RepoAuthorBreakdown, RepoBreakdown, ReviewDecisionCount, StateCount, TrendPoint } from "~~/shared/types";
 
 async function stateRatioQuery() {
   return (await db().execute(sql`
@@ -86,9 +86,38 @@ async function draftCountQuery(): Promise<number> {
 
 async function reviewDecisionQuery(): Promise<ReviewDecisionCount[]> {
   return (await db().execute(sql`
-    SELECT COALESCE(review_decision, '(none)') AS decision, count(*)::int AS count
-    FROM prs GROUP BY decision ORDER BY count DESC
+    SELECT state, count(*)::int AS count
+    FROM prs
+    GROUP BY state
+    ORDER BY count DESC
   `)).rows as unknown as ReviewDecisionCount[];
+}
+
+async function commentPerAuthorQuery(): Promise<RepoAuthorBreakdown[]> {
+  return (await db().execute(sql`
+    SELECT r.name_with_owner AS repo,
+           p.author_login AS author,
+           count(c.id)::int AS count
+    FROM comments c JOIN reviews rv ON rv.id = c.review_id
+    JOIN prs p ON p.id = rv.pr_id
+    JOIN repos r ON r.id = p.repo_id
+    GROUP BY r.name_with_owner, p.author_login
+    ORDER BY count DESC LIMIT 15
+  `)).rows as unknown as RepoAuthorBreakdown[];
+}
+
+async function commentCountByAuthorQuery(): Promise<AuthorCommentBreakdown[]> {
+  return (await db().execute(sql`
+    SELECT p.author_login AS author,
+           count(c.id)::int AS "commentCount",
+           count(DISTINCT r.name_with_owner)::int AS "repoCount",
+           (SELECT count(*)::int FROM prs p2 WHERE p2.author_login = p.author_login) AS "prCount"
+    FROM comments c JOIN reviews rv ON rv.id = c.review_id
+    JOIN prs p ON p.id = rv.pr_id
+    JOIN repos r ON r.id = p.repo_id
+    GROUP BY p.author_login
+    ORDER BY "commentCount" DESC LIMIT 15
+  `)).rows as unknown as AuthorCommentBreakdown[];
 }
 
 async function codeChurnQuery(): Promise<ChurnPoint[]> {
@@ -104,7 +133,7 @@ async function codeChurnQuery(): Promise<ChurnPoint[]> {
 }
 
 export async function getAnalyticsData(): Promise<AnalyticsData> {
-  const [stateRatio, total, repoCount, reviewStats, perRepo, perAuthor, trend, mergeTime, draftCount, reviewDecisions, codeChurn] = await Promise.all([
+  const [stateRatio, total, repoCount, reviewStats, perRepo, perAuthor, trend, mergeTime, draftCount, codeChurn, commentsPerAuthor, commentsByAuthor, reviewDecisions] = await Promise.all([
     stateRatioQuery(),
     totalQuery(),
     repoCountQuery(),
@@ -114,8 +143,10 @@ export async function getAnalyticsData(): Promise<AnalyticsData> {
     trendQuery(),
     mergeTimeQuery(),
     draftCountQuery(),
-    reviewDecisionQuery(),
     codeChurnQuery(),
+    commentPerAuthorQuery(),
+    commentCountByAuthorQuery(),
+    reviewDecisionQuery(),
   ]);
   return {
     total,
@@ -128,7 +159,9 @@ export async function getAnalyticsData(): Promise<AnalyticsData> {
     trend,
     avgMergeTimeDays: mergeTime,
     draftCount,
-    reviewDecisions,
     codeChurn,
+    commentsPerAuthor,
+    commentsByAuthor,
+    reviewDecisions,
   };
 }

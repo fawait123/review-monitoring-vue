@@ -157,6 +157,24 @@ export interface AuthorBreakdown {
   count: number;
 }
 
+export interface RepoAuthorBreakdown {
+  repo: string;
+  author: string;
+  count: number;
+}
+
+export interface ReviewDecisionCount {
+  state: string;
+  count: number;
+}
+
+export interface AuthorCommentBreakdown {
+  author: string;
+  commentCount: number;
+  repoCount: number;
+  prCount: number;
+}
+
 export interface TrendPoint {
   week: string;
   OPEN: number;
@@ -168,11 +186,6 @@ export interface ChurnPoint {
   repo: string;
   additions: number;
   deletions: number;
-}
-
-export interface ReviewDecisionCount {
-  decision: string;
-  count: number;
 }
 
 export interface AnalyticsData {
@@ -188,8 +201,12 @@ export interface AnalyticsData {
   avgMergeTimeDays: number | null;
   /** Jumlah PR yang merupakan draft */
   draftCount: number;
-  /** Breakdown review_decision (APPROVED, CHANGES_REQUESTED, REVIEW_REQUIRED, null) */
-  reviewDecisions: ReviewDecisionCount[];
   /** Total additions/deletions per repo (top 15) */
   codeChurn: ChurnPoint[];
+  /** Jumlah komentar review per author PR, per repo (top 15) */
+  commentsPerAuthor: RepoAuthorBreakdown[];
+  /** Breakdown prs by state: MERGED, CLOSED, OPEN */
+  reviewDecisions: ReviewDecisionCount[];
+  /** Per author PR: total komentar + total repo + total PR milik author (top 15 by komentar) */
+  commentsByAuthor: AuthorCommentBreakdown[];
 }
