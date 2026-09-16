@@ -20,12 +20,25 @@ interface GhPRListItem {
 
 const PR_JSON_FIELDS =
   "number,title,author,state,createdAt,mergedAt,closedAt,updatedAt,url,headRefOid,isDraft,additions,deletions,reviewDecision";
+const EXCLUDED_REPOS = new Set([
+  "cridwan/pln-ip",
+  "fawait123/javan-test",
+  "geekarmy/pdip_komte_be",
+  "geekarmy/HRIS_orm",
+  "fawait123/chattbot-be",
+  "fawait123/transcosmos",
+]);
+// ponytail: gh search prs tak bisa negate repo — tiap arg dibungkus (parens) jadi
+// qualifier multi-term rusak, dan term berawalan - dibaca sbg flag. Pakai REST
+// search/issues: query string bebas, `-repo:` dihormati, --paginate utk semua hasil.
+const SEARCH_JQ =
+  '.items[] | {number: .number, title: .title, state: .state, author: {login: .user.login, name: null}, repository: {nameWithOwner: (.repository_url | sub("https://api.github.com/repos/"; ""))}, url: .html_url, createdAt: .created_at, updatedAt: .updated_at, isDraft: .draft}';
 
 /** Semua repo yang bisa diakses user (owner + collaborator + org member), exclude archived. */
 export async function listAccessibleRepos(): Promise<string[]> {
   const names: string[] = [];
   let page = 1;
-  for (;;) {
+  for (; ;) {
     const out = await gh([
       "api",
       `user/repos?affiliation=owner,collaborator,organization_member&per_page=100&page=${page}`,
@@ -79,19 +92,16 @@ interface SearchPR {
 
 /** PR open milik user ATAU yang minta review ke user — 2 call, dedupe. */
 export async function searchMyOpenPRs(): Promise<{ repo: string; pr: CollectedPR }[]> {
-  // ponytail: gh search tak punya --page; --limit 1000 di-paginate internal oleh gh
-  const queries = [
-    ["search", "prs", "--author", "@me", "--state", "open", "--limit", "1000"],
-    ["search", "prs", "--review-requested", "@me", "--state", "open", "--limit", "1000"],
-  ];
+  const exclude = [...EXCLUDED_REPOS].map((r) => `-repo:${r}`).join(" ");
+  const queries = [`author:@me is:open ${exclude}`, `review-requested:@me is:open ${exclude}`];
   const seen = new Set<string>();
   const rows: SearchPR[] = [];
   for (const q of queries) {
-    const out = await gh([
-      ...q,
-      "--json", "number,title,repository,url,author,state,createdAt,updatedAt,isDraft",
-    ]);
-    for (const r of JSON.parse(out) as SearchPR[]) {
+    const params = new URLSearchParams({ q, per_page: "100" }).toString();
+    const out = await gh(["api", `search/issues?${params}`, "--paginate", "--jq", SEARCH_JQ]);
+    for (const line of out.split("\n").filter(Boolean)) {
+      const r = JSON.parse(line) as SearchPR;
+      if (EXCLUDED_REPOS.has(r.repository.nameWithOwner)) continue; // jaga2 kalau query kena ubah
       const key = `${r.repository.nameWithOwner}#${r.number}`;
       if (!seen.has(key)) {
         seen.add(key);
