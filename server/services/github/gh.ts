@@ -19,13 +19,25 @@ export class GhError extends Error {
   }
 }
 
+const TRANSIENT_RE = /HTTP 50\d|HTTP 429|ETIMEDOUT|ECONNRESET|ECONNREFUSED|failed to (connect|reach)/;
+
+// ponytail: retry 3x utk error transient (502 dari api.github.com/graphql sering terjadi
+// saat collect banyak repo). gh() dipakai utk operasi read saja — aman di-retry;
+// write (ghJson) sengaja tidak di-retry.
 export async function gh(args: string[]): Promise<string> {
-  try {
-    const { stdout } = await exec("gh", args, { maxBuffer: 64 * 1024 * 1024 });
-    return stdout;
-  } catch (err: any) {
-    throw new GhError(`gh ${args[0]} gagal: ${err.message}`, err.stderr ?? "");
+  let lastErr: any;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const { stdout } = await exec("gh", args, { maxBuffer: 64 * 1024 * 1024 });
+      return stdout;
+    } catch (err: any) {
+      lastErr = err;
+      const detail = `${err.message ?? ""} ${err.stderr ?? ""}`;
+      if (attempt === 3 || !TRANSIENT_RE.test(detail)) break;
+      await new Promise((r) => setTimeout(r, 300 * attempt));
+    }
   }
+  throw new GhError(`gh ${args[0]} gagal: ${lastErr.message}`, lastErr.stderr ?? "");
 }
 
 /** gh dgn raw JSON body via stdin (utk `--input -`). */
