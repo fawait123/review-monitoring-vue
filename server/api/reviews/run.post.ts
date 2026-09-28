@@ -3,7 +3,7 @@ import { getPRDiff, getPRDetail, getPRFull } from "#server/services/github";
 import { upsertRepo } from "#server/services/db/repos";
 import { getPRByKey, upsertPR } from "#server/services/db/prs";
 import { createReview, freshReview } from "#server/services/db/reviews";
-import { runReview } from "#server/services/review/runner";
+import { runReviewDirectApi } from "#server/services/review/runner";
 import { parseDiff, clampToHunkLine } from "~~/shared/diff-parser";
 import type { DiffFile, ReviewResult } from "~~/shared/types";
 
@@ -87,7 +87,7 @@ export default defineEventHandler(async (event) => {
           send("file_start", { path: file.path });
 
           try {
-            const { result, model } = await runReview({
+            const { result, model } = await runReviewDirectApi({
               diff,
               filePathTarget: file.path,
               owner,

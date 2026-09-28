@@ -30,10 +30,16 @@ export function useReviewRun(options: {
         break;
       }
       case "tool": {
-        const inputStr = data.input ? `: ${String(data.input).slice(0, 120)}` : "";
+        const name = String(data.toolName ?? "");
+        const isError = Boolean(data.isError);
+        // Event "error" detailnya ada di `output`, bukan `input` — kalau cuma baca
+        // `input`, baris log jadi "⚠ tool error" tanpa jejanya.
+        const detail = String(data.input ?? "") || String(data.output ?? "");
+        // Baris normal boleh dipotong 120 char; error jangan — justru itu yang dicari.
+        const shown = isError || name === "error" ? detail : detail.slice(0, 120);
         pushLog({
-          kind: "tool",
-          text: `${data.isError ? "⚠" : "▶"} tool ${String(data.toolName ?? "")}${inputStr}`,
+          kind: isError ? "error" : "tool",
+          text: `${isError ? "✖" : "▶"} ${name}${shown ? `: ${shown}` : ""}`,
         });
         break;
       }
@@ -68,7 +74,7 @@ export function useReviewRun(options: {
         pushLog({ kind: "console", text: `Finish review file ${String(data.path ?? "")}` });
         break;
       case "error":
-        pushLog({ kind: "info", text: `❌ ${String(data.message ?? "")}` });
+        pushLog({ kind: "error", text: `❌ ${String(data.message ?? "")}` });
         toast.error(String(data.message ?? "Review gagal"));
         mode.value = "idle";
         if (data.reviewId) {
@@ -95,7 +101,7 @@ export function useReviewRun(options: {
   const runReview = async () => {
     log.value = [];
     mode.value = "running";
-    pushLog({ kind: "info", text: "Mengambil diff + menjalankan Pi agent…" });
+    pushLog({ kind: "info", text: "Mengambil diff + menjalankan review via nine-router…" });
 
     const controller = new AbortController();
     abortRef.value = controller;
@@ -142,7 +148,7 @@ export function useReviewRun(options: {
       }
     } catch (err: unknown) {
       if (err instanceof Error && err.name !== "AbortError") {
-        pushLog({ kind: "info", text: `❌ ${err.message}` });
+        pushLog({ kind: "error", text: `❌ ${err.message}` });
         toast.error(err.message);
         mode.value = "idle";
       }

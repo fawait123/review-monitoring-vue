@@ -7,7 +7,7 @@ import { useReviewSubmit } from "./useReviewSubmit";
 export type ReviewMode = "idle" | "running" | "editing" | "submitted";
 
 export interface LogLine {
-  kind: "info" | "tool" | "text" | "console";
+  kind: "info" | "tool" | "text" | "console" | "error";
   text: string;
 }
 

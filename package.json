@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck",
-    "test": "tsx scripts/diff-parser.test.ts"
+    "test": "tsx scripts/review-direct-api.test.ts"
   },
   "dependencies": {
     "@clickhouse/client": "^1.23.1",

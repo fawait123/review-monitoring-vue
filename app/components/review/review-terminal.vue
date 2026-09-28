@@ -14,7 +14,7 @@ defineEmits<{
   <div class="rounded-lg border p-4 space-y-3">
     <h3 class="font-semibold text-sm flex items-center gap-2">
       <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-      Pi agent sedang mereview…
+      Model sedang mereview…
     </h3>
     <div class="rounded bg-black/40 p-3 h-64 overflow-y-auto font-mono text-xs space-y-1">
       <div
@@ -23,11 +23,13 @@ defineEmits<{
         :class="
           l.kind === 'info'
             ? 'text-sky-400'
-            : l.kind === 'tool'
-              ? 'text-amber-400/80'
-              : l.kind === 'console'
-                ? 'text-pink-400/80'
-                : 'text-emerald-300/90 whitespace-pre-wrap wrap-break-word'
+            : l.kind === 'error'
+              ? 'text-red-400 whitespace-pre-wrap wrap-break-word'
+              : l.kind === 'tool'
+                ? 'text-amber-400/80'
+                : l.kind === 'console'
+                  ? 'text-pink-400/80'
+                  : 'text-emerald-300/90 whitespace-pre-wrap wrap-break-word'
         "
       >
         {{ l.text }}
