@@ -44,6 +44,16 @@
           "id": "nvidia/deepseek-ai/deepseek-v4-pro-0813",
           "name": "NVDIA NIM Deepseek",
           "reasoning": true
+        },
+        {
+          "id": "geek/ggai-auto",
+          "name": "Geekgarden AI Auto",
+          "reasoning": true
+        },
+        {
+          "id": "geek/ggai-v1.0-medium",
+          "name": "Geekgarden AI Medium",
+          "reasoning": true
         }
       ],
       "fallbackModels": [
