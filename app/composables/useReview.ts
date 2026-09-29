@@ -28,6 +28,8 @@ export function useReview(options: {
     excludedPaths: state.excludedPaths,
     abortRef: state.abortRef,
     pushLog: state.pushLog,
+    fileProgress: state.fileProgress,
+    setFileProgress: state.setFileProgress,
   });
   const commentsApi = useReviewComments({
     activeReviewId: state.activeReviewId,
@@ -56,6 +58,7 @@ export function useReview(options: {
     submitting: state.submitting,
     excludedPaths: state.excludedPaths,
     totalExclude: state.totalExclude,
+    fileProgress: state.fileProgress,
     toggleExclude: state.toggleExclude,
     runReview: run.runReview,
     cancelRun: run.cancelRun,

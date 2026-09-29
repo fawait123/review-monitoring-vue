@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import type { ReviewResult } from "~~/shared/types";
+import { clampToRange } from "~~/shared/diff-parser";
 import { lastAssistantText, cleanText, isTransientError, delay, extractJson } from "./utils";
 
 export interface ReviewRunCallbacks {
@@ -17,7 +18,10 @@ interface RunOptions {
   title: string;
   baseRef: string;
   headRef: string;
-  clampLine: (path: string, line: number) => number | null;
+  /** Nomor baris new-side milik potongan diff yang sedang direview. Clamp dibatasi
+   *  ke daftar ini supaya komentar tidak menempel ke baris di potongan lain. */
+  hunkLines: number[];
+  chunkInfo?: { index: number; total: number; lineStart?: number; lineEnd?: number };
   cb: ReviewRunCallbacks;
   signal?: AbortSignal;
 }
@@ -113,7 +117,8 @@ export async function runReview(
     baseRef: opts.baseRef,
     headRef: opts.headRef,
     diff: opts.diff,
-    filePathTarget: opts.filePathTarget
+    filePathTarget: opts.filePathTarget,
+    chunkInfo: opts.chunkInfo
   });
 
   // INJECT instruksi tambahan di akhir prompt agar AI benar-benar fokus pada 1 file ini
@@ -196,8 +201,8 @@ export async function runReview(
       // PROTEKSI: Abaikan comment dari file lain jika LLM tergelincir berhalusinasi
       if (c.path !== opts.filePathTarget) continue;
 
-      const line = opts.clampLine(c.path, c.line);
-      if (line === null) continue; // file tak ada di diff → drop
+      const line = clampToRange(opts.hunkLines, c.line);
+      if (line === null) continue; // di luar rentang potongan ini → drop
       clamped.push({ ...c, line });
     }
 
@@ -415,6 +420,7 @@ export async function runReviewDirectApi(
     headRef: opts.headRef,
     diff: opts.diff,
     filePathTarget: opts.filePathTarget,
+    chunkInfo: opts.chunkInfo,
   });
   const messages = [
     { role: "system", content: REVIEW_SYSTEM_PROMPT },
@@ -524,8 +530,8 @@ export async function runReviewDirectApi(
     const clamped: ReviewResult["comments"] = [];
     for (const c of result.comments) {
       if (c.path !== opts.filePathTarget) continue; // abaikan komentar untuk file lain
-      const line = opts.clampLine(c.path, c.line);
-      if (line === null) continue; // file tak ada di diff → drop
+      const line = clampToRange(opts.hunkLines, c.line);
+      if (line === null) continue; // di luar rentang potongan ini → drop
       clamped.push({ ...c, line });
     }
 

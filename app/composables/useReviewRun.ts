@@ -2,6 +2,7 @@ import { toast } from "vue-sonner";
 import type { PR, Review, ReviewComment } from "~~/shared/types";
 import type { Ref } from "vue";
 import type { ReviewMode, LogLine } from "./useReview";
+import type { FileProgress } from "./useReviewState";
 
 export function useReviewRun(options: {
   pr: PR;
@@ -13,8 +14,13 @@ export function useReviewRun(options: {
   excludedPaths: Ref<string[]>;
   abortRef: Ref<AbortController | null>;
   pushLog: (line: LogLine) => void;
+  fileProgress: Ref<Record<string, FileProgress>>;
+  setFileProgress: (path: string, patch: FileProgress) => void;
 }) {
-  const { pr, mode, activeReviewId, summary, comments, log, excludedPaths, abortRef, pushLog } = options;
+  const {
+    pr, mode, activeReviewId, summary, comments, log, excludedPaths, abortRef,
+    pushLog, fileProgress, setFileProgress,
+  } = options;
 
   const handleEvent = (event: string, data: Record<string, unknown>) => {
     switch (event) {
@@ -41,13 +47,38 @@ export function useReviewRun(options: {
           kind: isError ? "error" : "tool",
           text: `${isError ? "✖" : "▶"} ${name}${shown ? `: ${shown}` : ""}`,
         });
+        // Rentang baris dikirim sebagai field terpisah, bukan ditokenisasi dari
+        // `input` — supaya UI bisa menandai baris tepat tanpa rapuh.
+        if (name === "chunk" && data.file) {
+          const path = String(data.file);
+          const prev = fileProgress.value[path] ?? { status: "active" as const };
+          const from = Number(data.lineStart);
+          const to = Number(data.lineEnd);
+          const spans = prev.spans?.map((s) => ({ ...s, active: false })) ?? [];
+          if (Number.isFinite(from) && Number.isFinite(to) && to >= from) {
+            spans.push({ from, to, active: true });
+          }
+          setFileProgress(path, {
+            status: "active",
+            chunk: data.chunk != null ? Number(data.chunk) : prev.chunk,
+            total: data.total != null ? Number(data.total) : prev.total,
+            spans,
+          });
+        }
         break;
       }
       case "diff": {
-        const filesCount = Array.isArray(data.files) ? data.files.length : 0;
+        const files = Array.isArray(data.files) ? data.files : [];
+        const filesCount = files.length;
+        const chunks = files.reduce(
+          (a: number, f: { chunks?: number }) => a + (Number(f?.chunks) || 0),
+          0,
+        );
         pushLog({
           kind: "info",
-          text: `Diff: ${Number(data.size ?? 0).toLocaleString()} bytes, ${filesCount} file`,
+          text:
+            `Diff: ${Number(data.size ?? 0).toLocaleString()} bytes, ${filesCount} file` +
+            (chunks > filesCount ? ` → ${chunks} bagian` : ""),
         });
         break;
       }
@@ -58,22 +89,42 @@ export function useReviewRun(options: {
         pushLog({ kind: "info", text: `✅ Review selesai (id ${data.reviewId}). Memuat hasil…` });
         loadReview(Number(data.reviewId));
         break;
-      case "file_start":
+      case "file_start": {
+        const path = String(data.path ?? "");
+        setFileProgress(path, { status: "active", total: Number(data.chunks ?? 1), chunk: 0 });
         pushLog({ kind: "console", text: "==============================" });
         pushLog({ kind: "console", text: "============= START ==========" });
         pushLog({ kind: "console", text: "==============================" });
-        pushLog({ kind: "console", text: `Starting review file ${String(data.path ?? "")}` });
+        pushLog({
+          kind: "console",
+          text: `Starting review file ${path}` +
+            (Number(data.chunks ?? 1) > 1 ? ` (${Number(data.chunks)} bagian)` : ""),
+        });
         break;
-      case "exclude_file":
+      }
+      case "exclude_file": {
+        setFileProgress(String(data.path ?? ""), { status: "skipped" });
         pushLog({ kind: "console", text: "==============================" });
         pushLog({ kind: "console", text: "=========== EXCLUDE ==========" });
         pushLog({ kind: "console", text: "==============================" });
         pushLog({ kind: "console", text: `Exclude review file ${String(data.path ?? "")}` });
         break;
-      case "file_done":
-        pushLog({ kind: "console", text: `Finish review file ${String(data.path ?? "")}` });
+      }
+      case "file_done": {
+        const path = String(data.path ?? "");
+        // Jangan timpa status error: file yang gagal di tengah tetap harus ditandai merah.
+        const prev = fileProgress.value[path];
+        if (prev?.status !== "error") {
+          setFileProgress(path, { ...prev, status: "done", spans: prev?.spans?.map((s) => ({ ...s, active: false })) });
+        }
+        pushLog({ kind: "console", text: `Finish review file ${path}` });
         break;
-      case "error":
+      }
+      case "error": {
+        // Event "error" tidak membawa path file. Tandai file yang lagi aktif supaya
+        // sidebar diff menunjukkan file mana yang gagal, bukan semuanya diam saja.
+        const active = Object.entries(fileProgress.value).find(([, p]) => p.status === "active");
+        if (active) setFileProgress(active[0], { ...active[1], status: "error" });
         pushLog({ kind: "error", text: `❌ ${String(data.message ?? "")}` });
         toast.error(String(data.message ?? "Review gagal"));
         mode.value = "idle";
@@ -81,6 +132,7 @@ export function useReviewRun(options: {
           loadReview(Number(data.reviewId));
         }
         break;
+      }
     }
   };
 
@@ -100,6 +152,7 @@ export function useReviewRun(options: {
 
   const runReview = async () => {
     log.value = [];
+    fileProgress.value = {};
     mode.value = "running";
     pushLog({ kind: "info", text: "Mengambil diff + menjalankan review via nine-router…" });
 

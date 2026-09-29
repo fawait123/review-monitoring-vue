@@ -4,7 +4,7 @@ import { upsertRepo } from "#server/services/db/repos";
 import { getPRByKey, upsertPR } from "#server/services/db/prs";
 import { createReview, freshReview } from "#server/services/db/reviews";
 import { runReviewDirectApi } from "#server/services/review/runner";
-import { parseDiff, clampToHunkLine } from "~~/shared/diff-parser";
+import { parseDiff, chunkFileDiff, serializeHunks } from "~~/shared/diff-parser";
 import type { DiffFile, ReviewResult } from "~~/shared/types";
 
 // Fungsi helper untuk memformat data SSE
@@ -13,12 +13,14 @@ function sse(event: string, data: unknown): string {
 }
 
 export default defineEventHandler(async (event) => {
-  const { owner, repo, number, excludeFiles } = (await readBody(event)) as {
+  const { owner, repo, number, excludeFiles: rawExclude } = (await readBody(event)) as {
     owner: string;
     repo: string;
     number: number;
-    excludeFiles: string[]
+    // Field ini opsional: request tanpa `excludeFiles` harus tetap jalan, bukan 500.
+    excludeFiles?: string[]
   };
+  const excludeFiles = Array.isArray(rawExclude) ? rawExclude : [];
 
   if (!owner || !repo || !number) {
     setResponseStatus(event, 400);
@@ -72,9 +74,11 @@ export default defineEventHandler(async (event) => {
         ]);
 
         const files: DiffFile[] = parseDiff(diff);
-        const clampLine = (path: string, line: number) => clampToHunkLine(files, path, line);
 
-        send("diff", { size: diff.length, files: files.map((f) => f.path) });
+        send("diff", {
+          size: diff.length,
+          files: files.map((f) => ({ path: f.path, chunks: chunkFileDiff(f).length })),
+        });
 
         for (const file of files) {
           if (isAborted) break; // Hentikan loop jika koneksi terputus
@@ -84,48 +88,82 @@ export default defineEventHandler(async (event) => {
             continue;
           }
 
-          send("file_start", { path: file.path });
+          // Satu file dipecah per hunk supaya model tidak mengguess nomor baris di
+          // tengah diff raksasa. Diff file lain tidak ikut dikirim sama sekali.
+          const chunks = chunkFileDiff(file);
+          send("file_start", { path: file.path, chunks: chunks.length });
 
-          try {
-            const { result, model } = await runReviewDirectApi({
-              diff,
-              filePathTarget: file.path,
-              owner,
-              repo,
-              number,
-              title: detail.title,
-              baseRef: detail.baseRefName,
-              headRef: detail.headRefName,
-              clampLine,
-              cb: {
-                onDelta: (t) => send("delta", { file: file.path, text: t }),
-                onTool: (toolName, input, output, isError) =>
-                  send("tool", { file: file.path, toolName, input, output, isError }),
-                onDone: (m) => send("model", { file: file.path, model: m }),
-              },
-              signal: abortController.signal,
-            });
-
-            usedModel = model || usedModel;
-
-            if (result.summary) {
-              finalSummary += `\n\n### \`${file.path}\`\n${result.summary}`;
-            }
-
-            if (result.comments && result.comments.length > 0) {
-              allComments = allComments.concat(result.comments);
-            }
-          } catch (fileErr: unknown) {
+          const parts: string[] = [];
+          for (let i = 0; i < chunks.length; i++) {
             if (isAborted) break;
-            const errMsg = fileErr instanceof Error ? fileErr.message : String(fileErr);
+            const chunk = chunks[i]!;
+            const chunkDiff = serializeHunks(file, chunk.hunks, chunk.budget);
+
             send("tool", {
               file: file.path,
-              toolName: "error",
-              input: "",
-              output: `Gagal mereview file: ${errMsg}`,
-              isError: true,
+              toolName: "chunk",
+              input: `Bagian ${i + 1}/${chunks.length} · ${chunk.label} · ${(chunkDiff.length / 1024).toFixed(1)} KB`,
+              output: "",
+              isError: false,
+              // Rentang baris dikirim terpisah (bukan cuma ditulis di `input`) supaya
+              // client bisa menandai baris yang sedang direview tanpa parsing string.
+              chunk: i + 1,
+              total: chunks.length,
+              lineStart: chunk.newLines[0] ?? null,
+              lineEnd: chunk.newLines[chunk.newLines.length - 1] ?? null,
             });
-            finalSummary += `\n\n### \`${file.path}\`\n*(Catatan: Gagal memproses review file ini: ${errMsg})*`;
+
+            try {
+              const { result, model } = await runReviewDirectApi({
+                diff: chunkDiff,
+                filePathTarget: file.path,
+                hunkLines: chunk.newLines,
+                chunkInfo: {
+                  index: i + 1,
+                  total: chunks.length,
+                  lineStart: chunk.newLines[0],
+                  lineEnd: chunk.newLines[chunk.newLines.length - 1],
+                },
+                owner,
+                repo,
+                number,
+                title: detail.title,
+                baseRef: detail.baseRefName,
+                headRef: detail.headRefName,
+                cb: {
+                  onDelta: (t) => send("delta", { file: file.path, text: t }),
+                  onTool: (toolName, input, output, isError) =>
+                    send("tool", { file: file.path, toolName, input, output, isError }),
+                  onDone: (m) => send("model", { file: file.path, model: m }),
+                },
+                signal: abortController.signal,
+              });
+
+              usedModel = model || usedModel;
+
+              if (result.summary) {
+                parts.push(chunks.length > 1 ? `**(${chunk.label})**\n${result.summary}` : result.summary);
+              }
+
+              if (result.comments && result.comments.length > 0) {
+                allComments = allComments.concat(result.comments);
+              }
+            } catch (chunkErr: unknown) {
+              if (isAborted) break;
+              const errMsg = chunkErr instanceof Error ? chunkErr.message : String(chunkErr);
+              send("tool", {
+                file: file.path,
+                toolName: "error",
+                input: `Bagian ${i + 1}/${chunks.length} (${chunk.label})`,
+                output: `Gagal mereview bagian ini: ${errMsg}`,
+                isError: true,
+              });
+              parts.push(`*(Catatan: bagian ${chunk.label} gagal direview: ${errMsg})*`);
+            }
+          }
+
+          if (parts.length > 0) {
+            finalSummary += `\n\n### \`${file.path}\`\n${parts.join("\n\n")}`;
           }
 
           send("file_done", { path: file.path });

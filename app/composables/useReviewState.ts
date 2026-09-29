@@ -2,6 +2,27 @@ import { ref, computed } from "vue";
 import type { PR, Review, ReviewComment } from "~~/shared/types";
 import type { ReviewMode, LogLine } from "./useReview";
 
+/** Status satu file selama review berjalan, dipakai untuk menandai sidebar diff. */
+export type FileStatus = "pending" | "active" | "done" | "skipped" | "error";
+
+/** Rentang baris yang sudah selesai atau sedang direview, dalam satu file. */
+export interface LineSpan {
+  from: number;
+  to: number;
+  /** true = sedang diproses, false = sudah selesai. */
+  active: boolean;
+}
+
+export interface FileProgress {
+  status: FileStatus;
+  /** Bagian yang sedang diproses, 1-based. */
+  chunk?: number;
+  /** Total bagian file tersebut. */
+  total?: number;
+  /** Bagian yang sudah completion atau sedang jalan — dipakai untuk menandai baris. */
+  spans?: LineSpan[];
+}
+
 export function useReviewState(options: {
   pr: PR;
   reviews: Review[];
@@ -23,6 +44,13 @@ export function useReviewState(options: {
   const submitting = ref(false);
   const abortRef = ref<AbortController | null>(null);
   const excludedPaths = ref<string[]>([]);
+  // Key = path file. Yang tidak ada di sini berarti belum disentuh review.
+  const fileProgress = ref<Record<string, FileProgress>>({});
+
+  const setFileProgress = (path: string, patch: FileProgress) => {
+    if (!path) return;
+    fileProgress.value = { ...fileProgress.value, [path]: patch };
+  };
 
   const pushLog = (line: LogLine) => {
     log.value = [...log.value, line];
@@ -53,6 +81,8 @@ export function useReviewState(options: {
     abortRef,
     excludedPaths,
     totalExclude,
+    fileProgress,
+    setFileProgress,
     pushLog,
     toggleExclude,
   };

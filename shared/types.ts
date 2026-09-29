@@ -121,6 +121,8 @@ export interface ReviewResult {
 export interface DiffFile {
   path: string;
   hunks: DiffHunk[];
+  /** Baris blok sebelum `@@` pertama (diff --git, index, mode, rename, ---/+++). */
+  header?: string[];
 }
 
 export interface DiffHunk {

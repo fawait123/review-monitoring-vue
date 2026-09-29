@@ -6,24 +6,36 @@ const props = defineProps<{
   filePath: string;
   commentCount: number;
   isThreadOpen: boolean;
+  /** null = file belum disentuh review. */
+  lineState: "active" | "done" | null;
 }>();
 
 defineEmits<{
   "add-comment": [];
   "toggle-thread": [];
 }>();
+
+// Baris yang sedang diproses diberi tepi kiri + latar sedikit lebih kuat. Warna
+// status (hijau/merah) tetap terlihat di bawahnya, jadi tidak saling menutup.
+const MARK: Record<NonNullable<typeof props.lineState>, string> = {
+  active: "ring-1 ring-inset ring-sky-400/70 bg-sky-400/10",
+  done: "ring-1 ring-inset ring-emerald-500/30",
+};
 </script>
 
 <template>
   <div
-    class="group flex"
-    :class="
+    :data-new-line="line.newLine ?? undefined"
+    class="group flex border-l-2 transition-colors"
+    :class="[
       line.kind === 'add'
         ? 'bg-emerald-500/10 hover:bg-emerald-500/20'
         : line.kind === 'del'
           ? 'bg-red-500/10'
-          : 'text-muted-foreground'
-    "
+          : 'text-muted-foreground',
+      lineState ? MARK[lineState] : '',
+      lineState === 'active' ? 'border-l-sky-400' : lineState === 'done' ? 'border-l-emerald-500/60' : 'border-l-transparent',
+    ]"
   >
     <span class="w-12 px-2 text-right select-none text-muted-foreground/50 shrink-0">
       {{ line.oldLine ?? "" }}

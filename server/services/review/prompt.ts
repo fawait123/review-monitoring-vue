@@ -42,6 +42,7 @@ export function buildReviewUserPrompt(opts: {
   headRef: string;
   diff: string;
   filePathTarget?: string;
+  chunkInfo?: { index: number; total: number; lineStart?: number; lineEnd?: number };
 }): string {
   let prompt = `Review PR berikut secara profesional.
 
@@ -58,6 +59,19 @@ Balas dengan JSON sesuai format yang ditentukan.`;
     prompt += `\n\n--- PERHATIAN: MODE REVIEW PER FILE ---
 Saat ini kamu sedang ditugaskan secara spesifik HANYA untuk mereview file: \`${opts.filePathTarget}\`.
 Pastikan setiap summary dan detail comments pada objek JSON kamu hanya ditujukan untuk file tersebut berdasarkan diff yang diberikan. Abaikan file lain.`;
+  }
+
+  const c = opts.chunkInfo;
+  if (c && c.total > 1) {
+    const range = c.lineStart !== undefined && c.lineEnd !== undefined
+      ? `rentang baris ${c.lineStart}-${c.lineEnd}`
+      : "bagian ini";
+    prompt += `\n\n--- PERHATIAN: BAGIAN ${c.index} DARI ${c.total} ---
+Diff di atas HANYA berisi ${range} dari file tersebut, bukan keseluruhan file.
+- Hanya baris yang benar-benar terlihat pada diff di atas yang boleh kamu komentari.
+- DILARANG mengomentari baris yang tidak ada di diff ini, meskipun kamu menebak
+  letaknya dari baris lain. Komentar seperti itu akan dibuang.
+- Ringkasan (summary) harus hanya mencakup bagian ini saja.`;
   }
 
   return prompt;

@@ -35,7 +35,8 @@ const {
   submit,
   toggleExclude,
   totalExclude,
-  excludedPaths
+  excludedPaths,
+  fileProgress
 } = useReview({
   pr: props.pr,
   reviews: props.reviews,
@@ -49,6 +50,7 @@ const {
     <div class="min-w-0">
       <DiffViewer :excluded-files="excludedPaths" :submitted="mode === 'submitted'" :files="files" :comments="comments"
         :reviewer-name="reviewerName" :open-thread="openThread" :editing-id="editingId" :edit-body="editBody"
+        :file-progress="fileProgress"
         @open-thread="openThread = $event" @add-comment="addComment" @edit-body="editBody = $event"
         @edit="startEditComment" @save-edit="saveEdit" @cancel-edit="cancelEditComment" @delete="removeComment"
         @toggle-exclude="toggleExclude" />
