@@ -352,7 +352,7 @@ export async function streamChatCompletion(args: {
                 `Model API error: tidak ada data baru dalam ${waitMs / 1000}s (gateway timeout)`
               )
             );
-            void reader.cancel().catch(() => {});
+            void reader.cancel().catch(() => { });
           }, waitMs);
         }),
       ]);
@@ -361,7 +361,7 @@ export async function streamChatCompletion(args: {
     }
   };
 
-  for (;;) {
+  for (; ;) {
     const { done, value } = await readNext();
     if (done) break;
     buffer += decoder.decode(value, { stream: true });
@@ -391,7 +391,7 @@ export async function streamChatCompletion(args: {
         continue; // chunk bukan JSON (keepalive/comment) — abaikan
       }
       if (upstreamError !== null) {
-        await reader.cancel().catch(() => {});
+        await reader.cancel().catch(() => { });
         // Prefix "Model API error:" → isTransientError melihat kodenya (mis. gateway_timeout)
         // dan runner akan retry dengan backoff, atau lempar kalau bukan transient.
         throw new Error(`Model API error: ${upstreamError}`);
@@ -450,6 +450,13 @@ export async function runReviewDirectApi(
     let lastErr: unknown = null;
     for (let attempt = 0; attempt < MAX_ATTEMPTS_PER_MODEL; attempt++) {
       if (opts.signal?.aborted) throw new Error("Review dibatalkan karena client disconnect.");
+
+      opts.cb.onTool(
+        "using_model",
+        `Review using model ${target.model}`,
+        "",
+        false
+      )
       try {
         text = await streamChatCompletion({
           target,

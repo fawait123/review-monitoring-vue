@@ -45,7 +45,7 @@ const commentsByReview = computed<Record<number, ReviewComment[]>>(() => {
         belum ada di database lokal.` : error.message }}
       </p>
       <Button variant="outline" class="mt-4">
-        <NuxtLink to="/pull-request">← Dashboard</NuxtLink>
+        <NuxtLink to="/pull-request">← Pull Request</NuxtLink>
       </Button>
     </div>
 
