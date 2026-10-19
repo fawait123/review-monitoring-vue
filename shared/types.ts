@@ -95,6 +95,25 @@ export interface ReviewComment {
   ghCommentId: string | null;
 }
 
+export type FolderItemKind = "folder" | "link" | "file";
+
+export interface FolderItem {
+  id: number;
+  parentId: number | null;
+  kind: FolderItemKind;
+  name: string;
+  url: string | null;
+  originalName: string | null;
+  fileSize: number | null;
+  contentType: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface FolderTreeNode extends FolderItem {
+  children: FolderTreeNode[];
+}
+
 export interface CollectedPR {
   number: number;
   title: string;

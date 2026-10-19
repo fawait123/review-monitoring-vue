@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GitPullRequestIcon, LayoutDashboardIcon, MoonIcon, SettingsIcon, SunIcon, SparklesIcon } from "@lucide/vue";
+import { FolderTreeIcon, GitPullRequestIcon, LayoutDashboardIcon, MoonIcon, SettingsIcon, SunIcon, SparklesIcon } from "@lucide/vue";
 import GhStatusButton from "~/components/GhStatusButton.vue";
 
 const route = useRoute();
@@ -11,6 +11,7 @@ const nav = [
   { to: "/", label: "Dashboard", icon: LayoutDashboardIcon, exact: true },
   { to: "/pull-request", label: "Pull Request", icon: GitPullRequestIcon },
   { to: "/prd", label: "Generate PRD", icon: SparklesIcon },
+  { to: "/files", label: "Manage folder & file", icon: FolderTreeIcon },
   { to: "/model", label: "Model", icon: SettingsIcon },
 ];
 

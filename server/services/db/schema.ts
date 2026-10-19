@@ -9,8 +9,9 @@ import {
   index,
   check,
 } from "drizzle-orm/pg-core";
+import type { AnyPgColumn } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
-import type { PRState, ReviewStatus, CommentStatus, PrdStatus, PrdTaskStatus } from "~~/shared/types";
+import type { PRState, ReviewStatus, CommentStatus, PrdStatus, PrdTaskStatus, FolderItemKind } from "~~/shared/types";
 
 export const repos = pgTable(
   "repos",
@@ -143,5 +144,34 @@ export const prdTasks = pgTable(
   (t) => [
     index("idx_prd_tasks_prd").on(t.prdId),
     check("prd_tasks_status_check", sql`${t.status} IN ('todo','in_progress','done')`),
+  ],
+);
+
+// Tree folder/link/file untuk halaman /files — isi file disimpan di MinIO,
+// DB hanya menyimpan object key (storage_key).
+export const folderItems = pgTable(
+  "folder_items",
+  {
+    id: serial("id").primaryKey(),
+    parentId: integer("parent_id").references((): AnyPgColumn => folderItems.id, { onDelete: "cascade" }),
+    kind: text("kind").notNull().$type<FolderItemKind>(),
+    name: text("name").notNull(),
+    url: text("url"),
+    storageKey: text("storage_key"),
+    originalName: text("original_name"),
+    fileSize: integer("file_size"),
+    contentType: text("content_type"),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [
+    index("idx_folder_items_parent").on(t.parentId),
+    check("folder_items_kind_check", sql`${t.kind} IN ('folder','link','file')`),
+    check("folder_items_link_url_check", sql`${t.kind} <> 'link' OR ${t.url} IS NOT NULL`),
+    check("folder_items_file_key_check", sql`${t.kind} <> 'file' OR ${t.storageKey} IS NOT NULL`),
+    check(
+      "folder_items_folder_null_check",
+      sql`${t.kind} <> 'folder' OR (${t.url} IS NULL AND ${t.storageKey} IS NULL)`,
+    ),
   ],
 );
