@@ -65,7 +65,9 @@ const onRowClick = () => {
           <span class="w-4 shrink-0" />
           <LinkIcon class="size-4 shrink-0 text-muted-foreground" />
           <span class="truncate">{{ node.name }}</span>
-          <span class="truncate text-xs text-muted-foreground">{{ node.url }}</span>
+          <span class="truncate text-xs text-muted-foreground">
+            {{ String(node.url).length > 106 ? String(node.url).slice(0, 106) + '...' : node.url }}
+          </span>
         </a>
       </template>
 
