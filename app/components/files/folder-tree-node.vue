@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import {
+  CheckIcon,
   ChevronRightIcon,
+  CopyIcon,
   DownloadIcon,
   EyeIcon,
   FileIcon,
@@ -11,6 +13,7 @@ import {
   MoreVerticalIcon,
 } from "@lucide/vue";
 import type { FolderTreeNode } from "~~/shared/types";
+import Button from "../ui/button/Button.vue";
 
 defineOptions({ name: "FolderTreeNode" });
 
@@ -32,6 +35,7 @@ const emit = defineEmits<{
 }>();
 
 const open = ref(props.node.kind === "folder");
+const copied = ref(false);
 
 const isFolder = () => props.node.kind === "folder";
 const isSelected = () => props.node.id === props.selectedId;
@@ -40,6 +44,17 @@ const onRowClick = () => {
   if (isFolder()) {
     open.value = !open.value;
     emit("select", props.node);
+  }
+};
+
+const copyLink = async () => {
+  if (!props.node.url) return;
+  try {
+    await navigator.clipboard.writeText(props.node.url);
+    copied.value = true;
+    setTimeout(() => (copied.value = false), 1500);
+  } catch (e) {
+    console.error("Gagal menyalin link", e);
   }
 };
 </script>
@@ -69,6 +84,12 @@ const onRowClick = () => {
             {{ String(node.url).length > 106 ? String(node.url).slice(0, 106) + '...' : node.url }}
           </span>
         </a>
+
+        <Button variant="ghost" size="icon" class="size-7 shrink-0" :title="copied ? 'Tersalin' : 'Salin link'"
+          @click="copyLink">
+          <CheckIcon v-if="copied" class="size-4 text-green-600" />
+          <CopyIcon v-else class="size-4" />
+        </Button>
       </template>
 
       <template v-else>
